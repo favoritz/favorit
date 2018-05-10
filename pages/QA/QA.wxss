@@ -1,0 +1,49 @@
+/* pages/QA/QA.wxss */
+page{
+  display: block;
+  min-height:100%;
+  background-color: #f3f3f3;
+  
+}
+
+.banner{
+  height: 550 rpx;
+  background-color: #0aacbb;
+  text-align:center;
+  
+}
+
+.menu{
+  display:flex;
+  padding:35rpx;
+  padding-bottom: 0;
+  justify-content: space-between;
+  
+}
+.menu navigator{
+    width: 330rpx;
+    height: 160rpx;
+    text-align: center;
+    border-radius: 20rpx;
+    background: #f9f9f9;
+}
+
+.menu navigator .icon{
+
+}
+
+.menu navigator .text{
+  color: #666;
+  font-size: 13px;
+  position: relative;
+  line-height: 13px;
+
+}
+
+.menu navigator .num{
+    color: #0aacbb;
+    font-size: 48rpx;
+    line-height: 48rpx;
+    display: block;
+    padding: 30rpx 0 15rpx 0;
+}

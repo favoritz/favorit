@@ -1,0 +1,30 @@
+<!--pages/QA/QA.wxml-->
+<view class="page">
+  <view class="banner">
+    
+  </view>
+
+  <view class="menu">
+    <navigator open-type='navigate' url='../QA/question/question'>
+        <view class="num">icon</view>
+        <text class= "text">我要提问</text>
+    </navigator>
+    <navigator open-type='navigate' url='../QA/qList/questionList'>
+        <view class="num">icon</view>
+        <text class= "text">我要回答</text>
+    </navigator>
+
+  </view>
+  <view class="menu">
+    <navigator open-type='navigate' url='../QA/myQ/myquestions'>
+        <view class="num">0</view>
+        <text class="text">我的提问</text>
+    </navigator>
+    <navigator open-type='navigate' url='../QA/myA/myanswers'>
+        <view class="num">0</view>
+        <text class= "text">我的回答</text>
+    </navigator>
+
+  </view>
+
+</view>

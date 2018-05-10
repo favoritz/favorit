@@ -1,0 +1,74 @@
+<!--pages/QA/qList/questionList.wxml-->
+<!--列表list组件 -->
+
+<scroll-view class="scroll-posts-list"  scroll-y="true" style="height:100%"  bindscrolltolower="lower">
+  
+  <view class="top-bar"></view>
+
+    <view class="weui-search-bar">  
+       <view class="weui-search-bar__form">  
+          <view class="weui-search-bar__box">  
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>  
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindtap="searchLogShowed"/>  
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">  
+              <icon type="clear" size="14"></icon>  
+            </view>  
+          </view>  
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">  
+            <icon class="weui-icon-search" type="search" size="14"></icon>  
+            <view class="weui-search-bar__text">搜索</view>  
+          </label>  
+        </view>  
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="searchData">搜索</view> 
+      </view> 
+
+   
+
+  <view class="postslist">
+    <block wx:for="{{postsList}}"  wx:key="">
+      <view class="posts-list">
+        <navigator url="/pages/QA/detail/detail">
+          <view class="posts-list-info" index="{{index}}">
+            
+              <view class="item-box">
+                <view class="userinfo">
+                  <text class="username">{{item.create_at}}</text>
+                  <text class="time">{{item.last_reply_at}}</text>
+                </view>
+                <view class="posts-title">
+                  <text>{{item.title}}</text>
+                </view>
+              </view>
+          </view>
+          <view class="bar-info">
+            <view class="bar-info-item">
+              <!--
+              <image class="bar-info-item-icon" src="/images/icon/reply.png"></image>
+              -->
+              <text class="time">回复</text>
+              <view class="bar-info-item-number">{{item.reply_count}}</view>
+            </view>
+            <view class="bar-info-item">
+              <!--
+              <image class="bar-info-item-icon" src="/images/icon/visit.png"></image>
+              -->
+              <text class="time">浏览</text>
+              <view class="bar-info-item-number">{{item.visit_count}}</view>
+            </view>
+
+
+          </view>
+      </navigator>
+      </view>
+    </block>
+  </view>
+
+  <navigator class="post" url="/pages/QA/question/question">
+  </navigator>
+</scroll-view>
+
+<!--
+<loading class="loading" hidden="{{hidden}}">
+  <text class="loading-font">加载中...</text>
+</loading>
+-->
