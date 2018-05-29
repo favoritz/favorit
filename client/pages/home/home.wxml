@@ -1,0 +1,37 @@
+<!--pages/home/home.wxml-->
+<view class='searchbar'>
+  <image class="searchicon" src='/img/1.png'></image>
+  <input name="searchinput" placeholder="请输入关键词" />
+</view>
+
+<view class='caroussel'>
+<swiper indicator-dots='true' autoplay='true' interval='1000' duration='300'>
+  <swiper-item>
+    <button bindtap='btn1'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+  </swiper-item>
+  <swiper-item>
+    <button bindtap='btn2'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+  </swiper-item>
+  <swiper-item>
+    <button bindtap='btn3'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+  </swiper-item>
+</swiper>
+</view>
+
+<view class='anouncements_area'>
+  <scroll-view class='announcement_scroll'>
+    <view class='announcement' wx:for="{{announcements}}">
+      <button>[公告] {{item.name}}</button>
+    </view>
+  </scroll-view>
+</view>
+
+<view>
+  <scroll-view class="scrollviewv" scroll-y>
+    <view class='scrollitem'  wx:for="{{arr}}">
+      <image class="previewimage" src='/img/1.png'></image>
+      <label>{{item.name}}</label>
+    </view>
+  </scroll-view>
+</view>
+

@@ -1,0 +1,15 @@
+/* pages/filter/filter.wxss */
+.group{
+  height: 200px;
+}
+.group_header_icon{
+  height: 20px;
+  width: 20px;
+}
+.type_item{
+  float: left
+}
+.type_item_image{
+  height: 30px;
+  width: 30px;
+}
