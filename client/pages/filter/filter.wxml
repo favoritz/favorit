@@ -1,8 +1,8 @@
 <!--pages/filter/filter.wxml-->
 <text>pages/filter/filter.wxml</text>
 <view class='type'>
-  <button class='type_btn'>出二手</button>
-  <button class='type_btn'>求二手</button>
+  <button class='type_btn'>正在出售</button>
+  <button class='type_btn'>正在求购</button>
 </view>
 <view class='group'>
   <view class='group_header'>

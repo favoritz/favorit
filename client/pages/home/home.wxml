@@ -29,7 +29,7 @@
 <view>
   <scroll-view class="scrollviewv" scroll-y>
     <view class='scrollitem'  wx:for="{{arr}}">
-      <image class="previewimage" src='/img/1.png'></image>
+      <image class="previewimage" src='/img/1.png' style='width:80px;height:80px'></image>
       <label>{{item.name}}</label>
     </view>
   </scroll-view>

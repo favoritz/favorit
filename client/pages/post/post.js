@@ -5,10 +5,93 @@ Page({
    * 页面的初始数据
    */
   data: {
-    types:['0','1','2','3','4','5'],
-    typeindex:0,
-    areas: ['0', '1', '2', '3', '4'],
-    areaindex:0
+    'images':[],
+    'locations': [{
+      'index': 0,
+      'name': 'Laval',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 1,
+      'name': '南岸',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 2,
+      'name': '西岛',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 3,
+      'name': 'Saint-Laurent附近',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 4,
+      'name': '市区附近',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 5,
+      'name': 'Verdun/Lasalle附近',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 6,
+      'name': 'CDN/NDG附近',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      'index': 7,
+      'name': '奥林匹克附近以及东',
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }],
+    'types': [{
+      "name": '家具家居',
+      'index': 0,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      "name": '电器数码',
+      'index': 1,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      "name": '服装饰品',
+      'index': 2,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      "name": '美妆护肤',
+      'index': 3,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      "name": '书籍课本',
+      'index': 4,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }, {
+      "name": '其他分类',
+      'index': 5,
+      'icon_selected': '/img/1.png',
+      'icon_unselected': '/img/2.png',
+      'selected': false
+    }]
   },
 
   formSubmit: function (e) {
@@ -23,6 +106,17 @@ Page({
   areachange: function(e){
     this.setData({
       areaindex: e.detail.value
+    })
+  },
+  addimage_click: function(e){
+    wx.chooseImage({
+      count: 9, // 默认9  
+      sizeType: ['original'], // 可以指定是原图还是压缩图，默认二者都有  
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+      success: function (res) {
+        console.log(res)
+        this.setData(images,res.tempFilePaths)
+      }
     })
   },
 

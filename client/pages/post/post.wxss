@@ -1,1 +1,17 @@
 /* pages/post/post.wxss */
+.group{
+ 
+}
+.group_header_icon{
+  height: 20px;
+  width: 20px;
+}
+.type_item{
+  float: left
+}
+.group_item{
+}
+.type_item_image{
+  height: 30px;
+  width: 30px;
+}
