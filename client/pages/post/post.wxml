@@ -60,6 +60,15 @@
     <label class='group_header_title'>联系方式</label>
   </view>
   <view class='group_body'>
-    
+    <button>
+      <image src='/img/1.png' style='width:10px;height:10px;float:left'></image>
+      default communication method
+    </button>
+    <button>
+      <image src='/img/1.png' style='width:10px;height:10px;float:left'></image>
+      <input placeholder='phone'></input>
+    </button>
   </view>
 </view>
+
+<button>submit</button>

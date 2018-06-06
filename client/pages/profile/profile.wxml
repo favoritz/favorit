@@ -1,5 +1,17 @@
 <!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
-<view>
-  
+<view wx:if='{{profile == null}}'>
+  <image src='/img/1.png'></image>
+  <button bindtap='login'>login</button>
+</view>
+<view wx:else>
+ <view>
+  <image src='/img/1.png' style='float:left;height:100px;width:100px'></image>
+  <view>{{profile.username}}</view>
+  <view>已发布： {{profile.todocount}}</view>
+  <view>已完成： {{profile.donecount}}</view>
+ </view>
+ <button>联系方式</button>
+ <button>我发布的</button>
+ <button>我回复的</button>
+ <button bindtap='logout'>退出登录</button>
 </view>

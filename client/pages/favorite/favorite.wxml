@@ -1,2 +1,15 @@
 <!--pages/favorite/favorite.wxml-->
-<text>pages/favorite/favorite.wxml</text>
+<image src='/img/1.png' style='width:400px;height:10px'></image>
+
+<view>
+  <scroll-view class="scrollviewv" scroll-y>
+    <view class='scrollitem'  wx:for="{{arr}}">
+      <image class="previewimage" src='/img/1.png' style='width:80px;height:80px;float:left'></image>
+      <label>{{item.name}}</label><br/>
+      <label>发布于：{{item.date}}</label>
+      <label>地点：{{item.location}}</label>
+      <label>${{item.price}}</label>
+      <button>取消收藏</button>
+    </view>
+  </scroll-view>
+</view>

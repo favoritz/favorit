@@ -5,7 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    'profile':null,
+    'testprofile':{
+      'username':'这是一个username',
+      'donecount':32,
+      'todocount':21
+    }
   },
 
   /**
@@ -14,6 +19,14 @@ Page({
   onLoad: function (options) {
   
   },
+
+  login: function(e){
+    this.setData({'profile':this.data.testprofile})
+  },
+  logout:function(e){
+    this.setData({'profile':null})
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

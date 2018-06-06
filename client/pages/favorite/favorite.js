@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    'arr':[{
+      'name': '二手手机iphonex',
+      'date':'一天前',
+      'location':'dt',
+      'price':800
+    }
+     
+
+    ]
   },
 
   /**
