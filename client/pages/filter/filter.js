@@ -168,14 +168,24 @@ Page({
   
   },
   type_click: function(e){
+    for (var i = 0; i < 8; i++) {
+      var param = {};
+      var str = "types[" + i + "].selected"
+      this.setData({ [str]: false })
+    }
     var param = {};
     var str = "types[" + e.target.id + "].selected"
-    this.setData({[str] : !this.data.types[e.target.id].selected})
+    this.setData({ [str]: true })
   },
   location_click: function(e){
+    for (var i = 0; i < 8; i++) {
+      var param = {};
+      var str = "locations[" + i + "].selected"
+      this.setData({ [str]: false })
+    }
     var param = {};
     var str = "locations[" + e.target.id + "].selected"
-    this.setData({ [str]: !this.data.locations[e.target.id].selected })
+    this.setData({ [str]: true })
   },
   sorting_click: function(e){
     for(var i = 0; i<3; i++){

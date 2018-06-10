@@ -1,17 +1,37 @@
 <!--pages/profile/profile.wxml-->
-<view wx:if='{{profile == null}}'>
+<view wx:if='{{state==0}}'>
   <image src='/img/1.png'></image>
-  <button bindtap='login'>login</button>
+  <button bindtap='login'>登陆</button>
 </view>
-<view wx:else>
+
+<view wx:if='{{state==1}}'>
  <view>
   <image src='/img/1.png' style='float:left;height:100px;width:100px'></image>
   <view>{{profile.username}}</view>
   <view>已发布： {{profile.todocount}}</view>
   <view>已完成： {{profile.donecount}}</view>
  </view>
- <button>联系方式</button>
+ <button bindtap='contactinfotap'>联系方式</button>
  <button>我发布的</button>
  <button>我回复的</button>
  <button bindtap='logout'>退出登录</button>
+</view>
+
+<view wx:if='{{state==2}}'>
+  <button>微信号：{{profile.wxid}}</button>
+  <button bindtap='modifyphone'>手机号：{{profile.phone}}</button>
+  <button bindtap='modifyemail'>电子邮箱：{{profile.email}}</button>
+  <button bindtap='returntoone'>返回</button>
+</view>
+
+<view wx:if='{{state==3}}'>
+  <label>手机号: </label>
+  <input placeholder='{{profile.phone}}' bindinput='savetempdata'></input>
+  <button bindtap='confirmphone'>确认修改</button>
+</view>
+
+<view wx:if='{{state==4}}'>
+  <label>电子邮箱: </label>
+  <input placeholder='{{profile.email}}' bindinput='savetempdata'></input>
+  <button bindtap='confirmemail'>确认修改</button>
 </view>

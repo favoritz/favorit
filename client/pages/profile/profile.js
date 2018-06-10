@@ -5,28 +5,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'profile':null,
-    'testprofile':{
-      'username':'这是一个username',
-      'donecount':32,
-      'todocount':21
-    }
+    'state':0,
+    'profile': null,
+    'testprofile': {
+      'username': '这是一个username',
+      'todocount': 21,
+      'donecount': 31,
+      'wxid': 'jsdofijsdo',
+      'phone': '53128631',
+      'email': 'fjaiowef'
+    },
+    'tempdata':null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({ 'profile': getApp().globalData.profile })
   },
 
   login: function(e){
-    this.setData({'profile':this.data.testprofile})
+    getApp().globalData.profile = getApp().globalData.testprofile
+    this.setData({ 'profile': this.data.testprofile })
+    this.setData({'state':1})
   },
   logout:function(e){
-    this.setData({'profile':null})
+    this.setData({'profile':null,'state':0})
+  
   },
-
+  contactinfotap:function(e){
+    this.setData({'state':2})
+  },
+  modifyphone:function(e){
+    this.setData({'state':3})
+  },
+  modifyemail:function(e){
+    this.setData({ 'state': 4 })
+  },
+  confirmphone:function(e){
+    this.setData({'profile.phone':this.data.tempdata,'state':1})
+  },
+  confirmemail:function(e){
+    this.setData({ 'profile.email': this.data.tempdata, 'state': 1 })
+  },
+  savetempdata:function(e){
+    this.setData({'tempdata':e.detail.value})
+  },
+  returntoone:function(e){
+    this.setData({'state':1})
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

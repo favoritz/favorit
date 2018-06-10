@@ -1,44 +1,50 @@
 {
-  "pages":[
+  "pages": [
     "pages/profile/profile",
     "pages/post/post",
     "pages/filter/filter",
     "pages/home/home",
     "pages/favorite/favorite"
   ],
-  "window":{
-    "backgroundColor":"#F6F6F6",
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
     "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
-  "tabBar":{
-    "list":[{
-      "text":"首页",
-      "pagePath":"pages/home/home",
-      "iconPath":"img/首页.png",
-      "selectedIconPath":"img/首页u.png"
-    },{
-      "text": "筛选",
-      "pagePath": "pages/filter/filter",
-      "iconPath": "img/帖子.png",
-      "selectedIconPath": "img/帖子u.png"
-    },{
-      "text": "发布",
-      "pagePath": "pages/post/post",
-      "iconPath": "img/2.png",
-      "selectedIconPath": "img/1.png"
-    },{
-      "text":"收藏",
-      "pagePath":"pages/favorite/favorite",
-      "iconPath": "img/收藏.png",
-      "selectedIconPath": "img/收藏u.png"
-    },{
-      "text": "个人",
-      "pagePath": "pages/profile/profile",
-      "iconPath": "img/个人.png",
-      "selectedIconPath": "img/个人u.png"
-    }]
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "img/首页.png",
+        "selectedIconPath": "img/首页u.png"
+      },
+      {
+        "text": "筛选",
+        "pagePath": "pages/filter/filter",
+        "iconPath": "img/帖子.png",
+        "selectedIconPath": "img/帖子u.png"
+      },
+      {
+        "text": "",
+        "pagePath": "pages/post/post",
+        "iconPath": "img/2.png",
+        "selectedIconPath": "img/1.png"
+      },
+      {
+        "text": "收藏",
+        "pagePath": "pages/favorite/favorite",
+        "iconPath": "img/收藏.png",
+        "selectedIconPath": "img/收藏u.png"
+      },
+      {
+        "text": "个人",
+        "pagePath": "pages/profile/profile",
+        "iconPath": "img/个人.png",
+        "selectedIconPath": "img/个人u.png"
+      }
+    ]
   }
 }

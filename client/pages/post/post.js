@@ -97,16 +97,25 @@ Page({
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
   },
-  typeChange: function(e){
-    console.log(e);
-    this.setData({
-      typeindex: e.detail.value
-    })
+  type_click: function(e){
+    for (var i = 0; i < 8; i++) {
+      var param = {};
+      var str = "types[" + i + "].selected"
+      this.setData({ [str]: false })
+    }
+    var param = {};
+    var str = "types[" + e.target.id + "].selected"
+    this.setData({ [str]: true })
   },
-  areachange: function(e){
-    this.setData({
-      areaindex: e.detail.value
-    })
+  location_click: function(e){
+    for (var i = 0; i < 8; i++) {
+      var param = {};
+      var str = "locations[" + i + "].selected"
+      this.setData({ [str]: false })
+    }
+    var param = {};
+    var str = "locations[" + e.target.id + "].selected"
+    this.setData({ [str]: true })
   },
   addimage_click: function(e){
     wx.chooseImage({
