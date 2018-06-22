@@ -18,7 +18,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0aacbb",
     "navigationBarTitleText": "FavorIT",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white" 
   },
   "tabBar": {
     "color": "#fff",

@@ -1,71 +1,85 @@
 <!--pages/post/post.wxml-->
-<view class='type'>
-  <button class='type_btn'>出二手</button>
-  <button class='type_btn'>求二手</button>
+<view class='topbtn'>
+  <button style="width:50%; background-color:white;" >出二手</button>
+  <button style="width:50%; background-color:white;" >求二手</button>
 </view>
-<view class='group' style='height:120px'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
+
+  <view class="menuTitle">
+    <image class='circle' src=''></image>
     <label class='group_header_title'>发布种类</label>
   </view>
-  <view class='group_body' wx:for='{{types}}'>
+  <view class="menuContent"  wx:for='{{types}}'>
     <view class='type_item'>
-      <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}'/>
-      <image wx:if='{{!item.selected}}' class='type_item_image' src='{{item.icon_unselected}}' bindtap='type_click' id='{{item.index}}'/>
-      <label>{{item.name}}</label>
+      <image wx:if='{{item.selected}}' class='circleSelected' src='' bindtap='type_click' style="width:25%;" id='{{item.index}}'/>
+      <image wx:if='{{!item.selected}}' class='circle' src='' bindtap='type_click' id='{{item.index}}'/>
+      <view>
+        <label>{{item.name}}</label>
+      </view>
     </view >
   </view>
-</view>
-<view class='group' style='height:200px'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>选择地点(可多选)</label>
+
+
+<view class= "menu">
+  <view class="menuTitle">
+    <image class='circle' src='/img/1.png'></image>
+    <label class='group_header_title'>选择地点</label>
   </view>
-  <view class='group_body' wx:for='{{locations}}'>
+<view class="location">
+  <radio-group bindchange="radioChange" >
+    <label  wx:for="{{location}}">
+        <radio value="{{name}}"></radio>
+        <view>{{item.value}}</view>
+        <!-- 其他布局代码 -->    
+    </label>   
+  </radio-group>
+</view>
+  <!--
+  <view class="menuContent" wx:for='{{locations}}'>
     <view class='type_item'>
       <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='location_click' id='{{item.index}}'/>
       <image wx:if='{{!item.selected}}' class='type_item_image' src='{{item.icon_unselected}}' bindtap='location_click' id='{{item.index}}'/>
       <label>{{item.name}}</label>
     </view >
   </view>
+  -->
 </view>
 
-<view class='group'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>发布详情</label>
+<view class="menu">
+  <view class="menuTitle">
+    <image class='circle' src='/img/1.png'></image>
+    发布详情
   </view>
-  <view class='group_body'>
-    <view class='group_item'>
-      <label>标题:</label>
-      <input placeholder='可输入品牌型号等信息，方便用户搜索'></input>
+  
+    <view class='.postTitle'>
+      <input style="width:100%;"placeholder='标题：可输入品牌型号等信息，方便用户搜索哦~'></input>
     </view>
-    <view class='group_item' >
-      <label>介绍:</label>
-      <textarea placeholder='可输入细节描述，越详细越容易被关注哟~' style='height:40px'></textarea>
+    <view class='menuContent' style="min-height:300rpx; margin-bottom:5rpx;" >
+      <textarea placeholder='详情：可输入细节描述，越详细越容易被关注哟' ></textarea>
     </view>
-    <view class='group_item'>
+    <view class='postTitle' >
       <label>图片:\n</label>
-      <image src='/img/1.png' style='width:50px;height:50px' bindtap='addimage_click'></image>
+    </view>
+
+    <view class="menuContent">
+      <image src='/img/1.png' style='width:250rpx;height:250rpx' bindtap='addimage_click'></image>
       <view wx:for='{{images}}'>
         <image class='choose_image' src='{{item.path}}'></image>
       </view>
     </view>
-  </view>
+  
 </view>
 
-<view class='group'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>联系方式</label>
+<view class="menu">
+  <view class="menuTitle">
+    <text>联系方式</text>
   </view>
-  <view class='group_body'>
-    <button>
-      <image src='/img/1.png' style='width:10px;height:10px;float:left'></image>
+  <view class="menuContent">
+    <button style="width:100%; height: 100rpx; background-color:white; color: #555555">
       default communication method
     </button>
-    <button>
-      <image src='/img/1.png' style='width:10px;height:10px;float:left'></image>
+  </view>
+  <view class="menuContent">
+    <button style="width:100%; height: 100rpx; background-color:white; color: #555555">
       <input placeholder='phone'></input>
     </button>
   </view>

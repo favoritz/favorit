@@ -1,0 +1,10 @@
+<!--pages/profile/contact/contact.wxml-->
+<view>
+  <view style="height:45rpx;"></view>
+  <button stlye="">微信号：{{testprofile.openid}}</button>
+  <button bindtap='modifyphone'>手机号：{{testprofile.phone}}</button>
+  <button bindtap='modifyemail'>Email：{{testprofile.email}}</button>
+  
+  <button style="margin-top:45rpx;"bindtap='returntoone'>修改</button>
+  
+</view>

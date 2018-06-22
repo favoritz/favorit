@@ -1,3 +1,4 @@
+<!--pages/profile/mypost/mypost.wxml-->
 <!--pages/favorite/favorite.wxml-->
 
 <scroll-view class="scroll-posts-list"  scroll-y="true" style="height:100%"  bindscrolltolower="lower">

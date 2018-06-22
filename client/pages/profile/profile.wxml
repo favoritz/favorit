@@ -1,20 +1,39 @@
 <!--pages/profile/profile.wxml-->
-<view wx:if='{{state==0}}'>
-  <image src='/img/1.png'></image>
-  <button bindtap='login'>登陆</button>
+<view class="profile" wx:if='{{state==0}}'>
+    <!--
+    <image style="width:150rpx;height:150rpx; top:200px;" src="/img/1.png"></image>
+    -->
+  <button bindtap='login' style="background-color:#0aacbb; color:white; margin-left:30rpx; margin-right:30rpx;">登陆</button>
 </view>
 
-<view wx:if='{{state==1}}'>
- <view>
-  <image src='/img/1.png' style='float:left;height:100px;width:100px'></image>
-  <view>{{profile.username}}</view>
-  <view>已发布： {{profile.todocount}}</view>
-  <view>已完成： {{profile.donecount}}</view>
+
+<view class="profile" wx:if='{{state==1}}'>
+ <view class="userinfo">
+  <view>
+    <image src='/img/1.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
+  </view>
+  <view style="display:flex; flex-direction:column; justify-content: left; padding-top:20rpx;">
+    <view style="margin-top:30rpx; margin-bottom:30rpx;">{{profile.username}}</view>
+    <view style="color:#555555; font-size:32rpx;">已发布： {{profile.todocount}}件</view>
+    <view style="color:#555555; font-size:32rpx;">已完成： {{profile.donecount}}件</view>
+  </view>
  </view>
- <button bindtap='contactinfotap'>联系方式</button>
- <button>我发布的</button>
- <button>我回复的</button>
- <button bindtap='logout'>退出登录</button>
+
+ <view class="my">
+    <navigator open-type='navigate'  url='../profile/contact/contact'>
+        <text class= "text">联系方式</text>
+    </navigator>
+
+  <navigator open-type='navigate'  url='../profile/mypost/mypost'>
+        <text class= "text">我发布的</text>
+    </navigator>
+
+  <navigator open-type='navigate'  url='../profile/myreply/myreply'>
+        <text class= "text">我回复的</text>
+    </navigator>
+</view>
+
+ <button bindtap='logout' style='background-color:#0aacbb; color: white; margin-left:30rpx; margin-right:30rpx;'>退出登录</button>
 </view>
 
 <view wx:if='{{state==2}}'>

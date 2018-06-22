@@ -1,0 +1,7 @@
+/* pages/profile/contact/contact.wxss */
+button{
+  display:flex;
+  font-size:40rpx;
+  margin-bottom:0rpx;
+  color:#555555;
+}

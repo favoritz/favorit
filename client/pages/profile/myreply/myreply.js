@@ -1,18 +1,17 @@
-// pages/favorite/favorite.js
+// pages/profile/myreply/myreply.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
     postsList: [
       {
         "id": 1,
         "author": "Joseph",
-        "location":"市区附近",
-        "price":"100",
-        "priority":"置顶",
+        "location": "市区附近",
+        "price": "100",
+        "priority": "置顶",
         "status": "1",
         "title": "二手iphone无锁",
         "content": "第一个内容",
@@ -21,7 +20,7 @@ Page({
         "reply_count": "0",
         "visit_count": "0",
         "tab": "ask"
-        
+
       },
       {
         "id": 2,
@@ -96,40 +95,7 @@ Page({
         "tab": "ask"
       }
     ],
-    hidden: false,
-    inputShowed: false,
-    inputVal: ""
   },
-
-  onPostClick: function (e) {
-
-    wx.navigateTo({
-      url: 'pages/question/question',
-    })
-  },
-
-  showInput: function () {
-    this.setData({
-      inputShowed: true
-    });
-  },
-  hideInput: function () {
-    this.setData({
-      inputVal: "",
-      inputShowed: false
-    });
-  },
-  clearInput: function () {
-    this.setData({
-      inputVal: ""
-    });
-  },
-  inputTyping: function (e) {
-    this.setData({
-      inputVal: e.detail.value
-    });
-  },
-
 
   /**
    * 生命周期函数--监听页面加载

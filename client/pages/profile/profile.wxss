@@ -1,1 +1,35 @@
 /* pages/profile/profile.wxss */
+.profile{
+  top: 40%;
+}
+
+.userinfo{
+  display:block;
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+  background-color: white;
+  height:300rpx;
+}
+
+.my{
+  display:block;
+  margin-top:10rpx;
+  margin-bottom:40rpx;
+}
+.my navigator{
+  background-color: white;
+  height:100rpx; 
+  color:#555555; 
+  font-weight:600; 
+  vertical-align: center;
+  border-bottom: 4rpx solid #f3f3f3;
+}
+
+.my navigator text{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  padding-left:30rpx;
+  vertical-align:middle;
+  padding-top:17rpx;
+}

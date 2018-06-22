@@ -1,7 +1,15 @@
 /**app.wxss**/
+@import 'pages/common/weui.wxss';
+@import 'pages/common/weui-searchbar.wxss';
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+
 } 
+
+page{
+  background-color: #f2f2f2;
+  height:100%;
+}

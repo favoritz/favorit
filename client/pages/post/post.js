@@ -91,7 +91,17 @@ Page({
       'icon_selected': '/img/1.png',
       'icon_unselected': '/img/2.png',
       'selected': false
-    }]
+    }],
+    'location': [
+      { 'name': '0', 'value': 'Laval' },  
+      { 'name': '1', 'value': '南岸' },
+      { 'name': '2', 'value': '西岛' },
+      { 'name': '3', 'value': 'Saint-Laurent 附近' },
+      { 'name': '4', 'value': '市区附近' },
+      { 'name': '5', 'value': 'Verdun/Lasalle 附近' },
+      { 'name': '6', 'value': 'CDN/NDG 附近' },
+      { 'name': '7', 'value': '奥林匹克 附近及以东' }
+    ]  
   },
 
   formSubmit: function (e) {
@@ -117,6 +127,14 @@ Page({
     var str = "locations[" + e.target.id + "].selected"
     this.setData({ [str]: true })
   },
+  // 地点选择,获取用户选择的单选框的值  
+  radioChange: function (e) {
+    this.setData({
+      value: e.detail.value
+    })
+    console.log(e.detail.value)
+  },  
+
   addimage_click: function(e){
     wx.chooseImage({
       count: 9, // 默认9  

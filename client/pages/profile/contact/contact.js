@@ -1,11 +1,11 @@
-// pages/profile/profile.js
+// pages/profile/contact/contact.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    'state':0,
+    'state': 1,
     'profile': null,
     'testprofile': {
       'username': '测试用本地用户名',
@@ -15,7 +15,7 @@ Page({
       'phone': '53128631',
       'email': 'fjaiowef@gmail.com'
     },
-    'tempdata':null
+    'tempdata': null
   },
 
   /**
@@ -25,35 +25,23 @@ Page({
     this.setData({ 'profile': getApp().globalData.profile })
   },
 
-  login: function(e){
-    getApp().globalData.profile = getApp().globalData.testprofile
-    this.setData({ 'profile': this.data.testprofile })
-    this.setData({'state':1})
+  modifyphone: function (e) {
+    this.setData({ 'state': 3 })
   },
-  logout:function(e){
-    this.setData({'profile':null,'state':0})
-  
-  },
-  contactinfotap:function(e){
-    this.setData({'state':2})
-  },
-  modifyphone:function(e){
-    this.setData({'state':3})
-  },
-  modifyemail:function(e){
+  modifyemail: function (e) {
     this.setData({ 'state': 4 })
   },
-  confirmphone:function(e){
-    this.setData({'profile.phone':this.data.tempdata,'state':1})
+  confirmphone: function (e) {
+    this.setData({ 'profile.phone': this.data.tempdata, 'state': 1 })
   },
-  confirmemail:function(e){
+  confirmemail: function (e) {
     this.setData({ 'profile.email': this.data.tempdata, 'state': 1 })
   },
-  savetempdata:function(e){
-    this.setData({'tempdata':e.detail.value})
+  savetempdata: function (e) {
+    this.setData({ 'tempdata': e.detail.value })
   },
-  returntoone:function(e){
-    this.setData({'state':1})
+  returntoone: function (e) {
+    this.setData({ 'state': 1 })
   },
 
   /**

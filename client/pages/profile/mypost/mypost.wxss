@@ -1,3 +1,4 @@
+/* pages/profile/mypost/mypost.wxss */
 /* pages/favorite/favorite.wxss */
 .topics{
   box-sizing: border-box;

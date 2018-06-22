@@ -1,8 +1,22 @@
 <!--pages/home/home.wxml-->
-<view class='searchbar'>
-  <image class="searchicon" src='/img/1.png'></image>
-  <input name="searchinput" placeholder="请输入关键词" />
-</view>
+<scroll-view class="scroll-posts-list"  scroll-y="true" style="height:100%; background-color: #f2f2f2;"  bindscrolltolower="lower">
+
+<view class="weui-search-bar">  
+       <view class="weui-search-bar__form">  
+          <view class="weui-search-bar__box">  
+            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>  
+            <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindtap="searchLogShowed"/>  
+            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">  
+              <icon type="clear" size="14"></icon>  
+            </view>  
+          </view>  
+          <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">  
+            <icon class="weui-icon-search" type="search" size="14"></icon>  
+            <view class="weui-search-bar__text">请输入搜索内容</view>  
+          </label>  
+        </view>  
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="searchData">搜索</view> 
+      </view> 
 
 <view class='caroussel'>
 <swiper indicator-dots='true' autoplay='true' interval='1000' duration='300'>
@@ -18,20 +32,59 @@
 </swiper>
 </view>
 
-<view class='anouncements_area'>
+<view class='announcements_area'>
   <scroll-view class='announcement_scroll'>
     <view class='announcement' wx:for="{{announcements}}">
-      <button>[公告] {{item.name}}</button>
+      <button style="background-color:white; height: 80rpx; font-size: 35rpx; color: #555555; align-items:center; justify-content:left;">
+        <text style="color:#0aacbb;">[公告] </text> {{item.name}} 
+      </button>
     </view>
   </scroll-view>
 </view>
 
-<view>
-  <scroll-view class="scrollviewv" scroll-y>
-    <view class='scrollitem'  wx:for="{{arr}}">
-      <image class="previewimage" src='/img/1.png' style='width:80px;height:80px'></image>
-      <label>{{item.name}}</label>
-    </view>
-  </scroll-view>
-</view>
+<view class="postslist">
+    <block wx:for="{{postsList}}"  wx:key="">
+      <view class="posts-list">
+        <navigator url="/pages/QA/detail/detail">
+          <image class="previewimage" src='/img/1.png' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
+          <view class="posts-list-info" index="{{index}}">
+             
+              <view class="item-box">
+                <view class="posts-title">
+                  <text class="bluefont">[{{item.priority}}] </text>
+                  <text>{{item.title}}</text>
+                </view>
+                <view class="userinfo">
+                  <text class="username">发布于：{{item.create_at}}</text>
+                </view>
+                <view class="userinfo">
+                  <text class="time">{{item.location}}</text>
+                </view>
+
+                <view class="bar-info">
+                  <view class="bar-info-item">
+                    <!--
+                    <image class="bar-info-item-icon" src="/images/icon/reply.png"></image>
+                    -->
+                    <view class="bar-info-item-number bluefont" style="color:#0aacbb;">${{item.price}}</view>
+                  </view>
+                  <view class="bar-info-item" style="margin-left:30%;">
+              
+                    <image class="bar-info-item-icon" src="/img/收藏.png"></image>
+                    <!--
+                    <view class="bar-info-item-number">{{item.visit_count}}</view>
+                    -->
+                   <text class="bar-info-item-number" style="color:#555;">  {{item.visit_count}}</text>
+                  </view>
+             </view>
+          </view>
+          
+
+
+          </view>
+      </navigator>
+      </view>
+    </block>
+  </view>
+</scroll-view>
 
