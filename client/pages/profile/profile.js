@@ -7,14 +7,6 @@ Page({
   data: {
     'state':0,
     'profile': null,
-    'testprofile': {
-      'username': '测试用本地用户名',
-      'todocount': 21,
-      'donecount': 31,
-      'openid': 'jsdofijsdo',
-      'phone': '53128631',
-      'email': 'fjaiowef@gmail.com'
-    },
     'tempdata':null
   },
 
@@ -22,38 +14,50 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ 'profile': getApp().globalData.profile })
+    
+    this.setData({ 'profile': getApp().data.profile })
+    if(getApp().data.sessionid){
+      this.setData({'state':1})
+    }
   },
-
+  
   login: function(e){
-    getApp().globalData.profile = getApp().globalData.testprofile
-    this.setData({ 'profile': this.data.testprofile })
-    this.setData({'state':1})
+    var that = this
+    wx.login({
+      success:function(res){
+        if(res.code){
+          wx.request({
+            url: getApp().data.url+'login',
+            data: res.code,
+            header: {},
+            method: 'GET',
+            dataType: 'json',
+            responseType: 'text',
+            success: function(res) {
+              if (res.data.sessionid) {
+                getApp().data.sessionid = res.data.sessionid
+                getApp().data.profile = res.data.userinfo
+                that.setData({'state':1})
+              }
+            },
+            fail: function(res) {
+              getApp().data.sessionid = 1
+              that.setData({'state':1})
+            },
+            complete: function(res) {},
+          })
+        }
+        else{
+          console.log('登录失败！' + res.errMsg)  
+        }
+      }
+    })
+
   },
   logout:function(e){
+    getApp().data.sessionid = null
+    getApp().data.profile = null
     this.setData({'profile':null,'state':0})
-  
-  },
-  contactinfotap:function(e){
-    this.setData({'state':2})
-  },
-  modifyphone:function(e){
-    this.setData({'state':3})
-  },
-  modifyemail:function(e){
-    this.setData({ 'state': 4 })
-  },
-  confirmphone:function(e){
-    this.setData({'profile.phone':this.data.tempdata,'state':1})
-  },
-  confirmemail:function(e){
-    this.setData({ 'profile.email': this.data.tempdata, 'state': 1 })
-  },
-  savetempdata:function(e){
-    this.setData({'tempdata':e.detail.value})
-  },
-  returntoone:function(e){
-    this.setData({'state':1})
   },
 
   /**

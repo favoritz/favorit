@@ -43,7 +43,7 @@
 </view>
 
 <view class="postslist">
-    <block wx:for="{{postsList}}"  wx:key="">
+    <block wx:for="{{posts}}"  wx:key="">
       <view class="posts-list">
         <navigator url="/pages/QA/detail/detail">
           <image class="previewimage" src='/img/1.png' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
@@ -86,5 +86,6 @@
       </view>
     </block>
   </view>
+  <button bindtap='loadmore'>显示更多</button>
 </scroll-view>
 

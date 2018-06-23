@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postsList: [
+    replies: [
       {
         "id": 1,
         "author": "Joseph",
@@ -101,7 +101,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this
+    wx.request({
+      url: getApp().data.url + 'myreplies/' + getApp().data.sessionid,
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.setData({ 'replies': res.replies })
+      },
+      fail: function (res) {
+        wx.showModal({
+          title: '错误',
+          content: res.errMsg,
+          showCancel: false,
+          cancelText: '',
+          cancelColor: '',
+          confirmText: '确认',
+          confirmColor: ''
+        })
+      },
+      complete: function (res) { },
+    })
   },
 
   /**

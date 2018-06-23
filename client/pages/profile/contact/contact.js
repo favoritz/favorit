@@ -5,43 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
+    'display':true,
     'state': 1,
     'profile': null,
-    'testprofile': {
-      'username': '测试用本地用户名',
-      'todocount': 21,
-      'donecount': 31,
-      'openid': 'jsdofijsdo',
-      'phone': '53128631',
-      'email': 'fjaiowef@gmail.com'
-    },
-    'tempdata': null
+    'tempphone': null,
+    'tempemail':null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ 'profile': getApp().globalData.profile })
+    this.setData({ 'profile': getApp().data.profile })
   },
-
-  modifyphone: function (e) {
-    this.setData({ 'state': 3 })
+  edit:function(e){
+    this.setData({'display':false})
   },
-  modifyemail: function (e) {
-    this.setData({ 'state': 4 })
+  submit:function(e){
+    var that = this
+    wx.request({
+      url: getApp().data.url+'updateinfo/'+getApp().data.sessionid,
+      data: {'phone':this.data.tempphone,'email':this.data.tempemail},
+      header: {},
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        if(data.tempphone){
+          getApp().data.profile.phone = this.data.tempphone
+        }
+        if(data.tempemail){
+          getApp().data.profile.email = this.data.email
+        }
+        that.setData({ 'profile': getApp().globalData.profile })
+        that.setData({ 'display': true })
+      },
+      fail: function(res) {
+        wx.showModal({
+          title: '错误',
+          content: ''+res.errMsg,
+          showCancel: false,
+          cancelText: '',
+          cancelColor: '',
+          confirmText: '确认',
+          confirmColor: '',
+        })
+      },
+      complete: function(res) {},
+    })
   },
-  confirmphone: function (e) {
-    this.setData({ 'profile.phone': this.data.tempdata, 'state': 1 })
-  },
-  confirmemail: function (e) {
-    this.setData({ 'profile.email': this.data.tempdata, 'state': 1 })
-  },
-  savetempdata: function (e) {
-    this.setData({ 'tempdata': e.detail.value })
-  },
-  returntoone: function (e) {
-    this.setData({ 'state': 1 })
+  modifyphone:function(e){
+    console.log(e)
   },
 
   /**

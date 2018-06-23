@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/post/post",
     "pages/home/home",
-    "pages/postDetail/postDetail",
     "pages/profile/profile",
+    "pages/post/post",
+    "pages/postDetail/postDetail",
     "pages/favorite/favorite",
     "pages/filter/filter",
     "pages/profile/contact/contact",

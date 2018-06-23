@@ -1,10 +1,18 @@
 <!--pages/profile/contact/contact.wxml-->
-<view>
+<view wx:if='{{display}}'>
   <view style="height:45rpx;"></view>
-  <button stlye="">微信号：{{testprofile.openid}}</button>
-  <button bindtap='modifyphone'>手机号：{{testprofile.phone}}</button>
-  <button bindtap='modifyemail'>Email：{{testprofile.email}}</button>
+  <view>微信号：{{profile.wechatid}}</view>
+  <view>手机号：{{profile.phone}}</view>
+  <view>Email：{{profile.email}}</view>
+  <button style="margin-top:45rpx;"bindtap='edit'>修改</button>
+</view>
+
+<view wx:if='{{!display}}'>
+  <view style="height:45rpx;"></view>
+  <view>微信号：{{profile.wechatid}}</view>
+  <view>手机号：<input bindinput='modifyphone' placeholder='{{profile.phone}}'></input></view>
+  <view>Email：<input bindinput='modifyemail' placeholder='{{profile.email}}'></input></view>
   
-  <button style="margin-top:45rpx;"bindtap='returntoone'>修改</button>
+  <button style="margin-top:45rpx;"bindtap='submit'>确认修改</button>
   
 </view>

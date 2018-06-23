@@ -13,7 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postsList: [
+    loading:false,
+    posts: [
       {
         "id": 1,
         "author": "Joseph",
@@ -114,17 +115,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: '/host/weapp',
-      data: '',
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    
   },
 
   /**
@@ -138,7 +129,43 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    wx.startPullDownRefresh({
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+    var that = this
+    wx.request({
+      url: getApp().data.url+'recent/'+this.data.posts.length,
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData({'posts':res.posts})
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  loadmore: function(e){
+    var that = this
+    wx.request({
+      url: getApp().data.url + 'recent/' + this.data.posts.length,
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.data.posts.push(res.data.posts)
+        that.setData({ 'posts': that.data.posts }) },
+      fail: function (res) {  },
+      complete: function (res) {
+         
+      }
+    })
   },
 
   /**
@@ -159,14 +186,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**
