@@ -171,3 +171,27 @@
   display: block;
   color: #80bd01;
 }
+
+.userinfo{
+  display:block;
+  margin-top:20rpx;
+  margin-bottom:10rpx;
+  background-color: white;
+  height:300rpx;
+}
+
+.bar-info-item{
+  display: inline-block;
+  margin-left: ;
+  width:25%;
+  margin-right:10rpx;
+  margin-top: 15rpx;
+  line-height: 66rpx;
+}
+.bar-info-item-icon{
+  display: inline-block;
+  vertical-align: middle;
+  width: 40rpx;
+  height: 40rpx;
+  margin-right:;
+}

@@ -19,15 +19,15 @@
       </view> 
 
 <view class='caroussel'>
-<swiper indicator-dots='true' autoplay='true' interval='1000' duration='300'>
+<swiper indicator-dots='true' autoplay='true' interval='2000' duration='500'>
   <swiper-item>
-    <button bindtap='btn1'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+    <button bindtap='btn1'><image src='/img/Costco.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
   </swiper-item>
   <swiper-item>
-    <button bindtap='btn2'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+    <button bindtap='btn2'><image src='/img/talk.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
   </swiper-item>
   <swiper-item>
-    <button bindtap='btn3'><image src='/img/1.png' class="slide-image" width="355" height="150"/></button>
+    <button bindtap='btn3'><image src='/img/banner.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
   </swiper-item>
 </swiper>
 </view>
@@ -45,8 +45,8 @@
 <view class="postslist">
     <block wx:for="{{posts}}"  wx:key="">
       <view class="posts-list">
-        <navigator url="/pages/QA/detail/detail">
-          <image class="previewimage" src='/img/1.png' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
+        <navigator url="/pages/postDetail/postDetail">
+          <image class="previewimage" src='/img/detailPreview.jpg' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
           <view class="posts-list-info" index="{{index}}">
              
               <view class="item-box">
@@ -70,7 +70,7 @@
                   </view>
                   <view class="bar-info-item" style="margin-left:30%;">
               
-                    <image class="bar-info-item-icon" src="/img/收藏.png"></image>
+                    <image class="bar-info-item-icon" src="/img/favorite.png"></image>
                     <!--
                     <view class="bar-info-item-number">{{item.visit_count}}</view>
                     -->

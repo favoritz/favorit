@@ -2,9 +2,6 @@
 <!-- detail -->
 <page class="page detail">
   <view class="detail-post-meta">
-    <view class="detail-post-avatar">
-      <image class="detail-post-avatar-img" mode="scaleToFill" src="{{ detail.author.avatar_url }}" />
-    </view>
     <view class="detail-post-info">
       <view class="detail-post-author-name">
         <text>{{ detail.author.loginname }}</text>
@@ -17,11 +14,13 @@
         <view class="detail-type-item"  wx:if="{{detail.tab === 'sell'}}">
           <view class="detail-type-item-font">#出二手#</view>
         </view>
-        <view class="detail-type-item"  wx:if="{{detail.tab === 'job'}}">
-          <view class="detail-type-item-font">#招聘#</view>
+        <view class="detail-type-item"  wx:if="{{detail.tab === 'top'}}">
+          <view class="detail-type-item-font">#置顶#</view>
         </view>
       </view>
-      <view class="detail-post-time">楼主 发表于{{ detail.create_at }}</view>
+      <image class="bar-info-item-icon" src="/img/收藏.png"></image>
+      <view class="detail-post-time">发表于{{ detail.create_at }}</view>
+      <view class="detail-post-time">发表于{{ detail.create_at }}</view>
     </view>
 
     <view class="detail-collect-item" id="{{detail.id}}" catchtap="collect" wx:if="{{detail.is_collect == true}}">取消收藏</view>
@@ -40,6 +39,18 @@
   <view class="detail-post-content">
     <text class="content-info">{{ detail.content }}</text>
   </view>
+
+  <view class="userinfo">
+  <view>
+    <image src='/img/avatar.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
+  </view>
+  <view style="display:flex; flex-direction:column; justify-content: left; padding-top:20rpx;">
+    <view style="margin-top:30rpx; margin-bottom:30rpx;">{{profile.username}}</view>
+    <view style="color:#555555; font-size:32rpx;">已发布： {{profile.todocount}}件</view>
+    <view style="color:#555555; font-size:32rpx;">已完成： {{profile.donecount}}件</view>
+  </view>
+  </view>
+
 
   <view class="detail-post-comment">
     <view class="detail-post-comment-title">评论</view>
@@ -79,9 +90,8 @@
 
 
   <modal title="消息" confirm-text="确认" cancel-text="关闭" hidden="{{modalHidden}}" bindconfirm="confirmChange" bindcancel="cancelChange">
-    您还没未登录conde，是否前往认证登录？
+    您还没未登录，是否前往认证登录？
   </modal>
-
 
 </page>
 

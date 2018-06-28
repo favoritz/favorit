@@ -1,7 +1,7 @@
 /* pages/profile/profile.wxss */
 .profile{
   top: 40%;
-}
+} 
 
 .userinfo{
   display:block;
