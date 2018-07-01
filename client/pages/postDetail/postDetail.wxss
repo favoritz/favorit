@@ -1,4 +1,8 @@
 /* pages/postDetail/postDetail.wxss */
+.caroussel{
+  margin-bottom:15rpx;
+}
+
 .detail{
   height: 100%;
 }
@@ -8,7 +12,16 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
+  background-color: white;
 }
+
+.detail-post-title{
+  display:flex;
+  height: 30rpx;
+  font-size:24rpx;
+  color:balck;
+}
+
 .detail-post-avatar{
   margin-right: 20rpx;
 }
@@ -83,11 +96,11 @@
 
 .detail-post-content{
   overflow-x: hidden;
-  padding: 30rpx;
+
+  background-color: white;
 }
 .content-info {
   color: #6c6c6c;
-  word-wrap: break-word;
 }
 
 .detail-post-comment{
@@ -117,7 +130,7 @@
   margin-left: 20rpx;
 }
 .detail-post-comment {
-  background-color: #fff;
+  background-color: white;
 }
 .detail-post-comment-item {
   padding: 30rpx 0;
@@ -179,19 +192,26 @@
   background-color: white;
   height:300rpx;
 }
-
-.bar-info-item{
-  display: inline-block;
+.bar-info {
+  margin-top:20rpx;
+}
+.bar-info .bar-info-item{
+  display:flex;
   margin-left: ;
   width:25%;
   margin-right:10rpx;
   margin-top: 15rpx;
   line-height: 66rpx;
 }
-.bar-info-item-icon{
-  display: inline-block;
+
+.bar-info .bar-info-item .bar-info-item-icon{
+  display: flex;
   vertical-align: middle;
   width: 40rpx;
   height: 40rpx;
   margin-right:;
+}
+.bar-info .bar-info-item .bar-info-item-number{
+  display: flex;
+  vertical-align: middle;
 }

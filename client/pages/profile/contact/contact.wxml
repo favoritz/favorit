@@ -1,18 +1,31 @@
 <!--pages/profile/contact/contact.wxml-->
-<view wx:if='{{display}}'>
-  <view style="height:45rpx;"></view>
-  <view>微信号：{{profile.wechatid}}</view>
-  <view>手机号：{{profile.phone}}</view>
-  <view>Email：{{profile.email}}</view>
-  <button style="margin-top:45rpx;"bindtap='edit'>修改</button>
+<view class="my" wx:if='{{display}}'>
+  
+  <view class="contact">
+    <text>微信号：{{profile.wechatid}}</text>
+    </view>
+  <view class="contact">
+    <text>手机号：{{profile.phone}}</text>
+    </view>
+  <view class="contact">
+    <text>Email：{{profile.email}}</text>
+    </view>
+   <button bindtap='edit'>修改</button>
 </view>
 
-<view wx:if='{{!display}}'>
-  <view style="height:45rpx;"></view>
-  <view>微信号：{{profile.wechatid}}</view>
-  <view>手机号：<input bindinput='modifyphone' placeholder='{{profile.phone}}'></input></view>
-  <view>Email：<input bindinput='modifyemail' placeholder='{{profile.email}}'></input></view>
+<view class="my" wx:if='{{!display}}'>
   
-  <button style="margin-top:45rpx;"bindtap='submit'>确认修改</button>
+  <view class="contact">
+    <text>微信号：{{profile.wechatid}}</text>
+    </view>
+  <view class="contact">
+    <input bindinput='modifyphone' style="padding-left:25rpx;" placeholder='手机号：{{profile.phone}}'></input>
+    </view>
+  <view class="contact">
+    <input bindinput='modifyemail'style="padding-left:25rpx;align-items: center;vertical-align:middle; line-height:100rpx;"placeholder='Email：{{profile.email}}'></input>
+        </view>
+          
+            <button bindtap='submit'>确认修改</button>
+             
   
 </view>

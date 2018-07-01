@@ -14,9 +14,9 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#0aacbb",
+    "navigationBarTitleText": "FavorIT",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
@@ -33,10 +33,10 @@
         "selectedIconPath": "img/帖子u.png"
       },
       {
-        "text": "",
+        "text": "发新帖",
         "pagePath": "pages/post/post",
-        "iconPath": "img/2.png",
-        "selectedIconPath": "img/1.png"
+        "iconPath": "img/postIcon.png",
+        "selectedIconPath": "img/postIcon.png"
       },
       {
         "text": "收藏",

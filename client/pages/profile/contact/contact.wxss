@@ -5,3 +5,34 @@ button{
   margin-bottom:0rpx;
   color:#555555;
 }
+.my{
+  display:block;
+  margin-top:45rpx;
+  margin-bottom:45rpx;
+}
+.my .contact{
+  background-color: white;
+  height:100rpx; 
+  color:#555555; 
+  font-weight:600; 
+  align-items: center;
+  border-bottom: 4rpx solid #f3f3f3;
+}
+
+.my .contact text{
+  display:flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  padding-left:30rpx;
+  vertical-align:middle;
+  padding-top:17rpx;
+}
+.my button{
+  margin-top:100rpx; 
+  margin-left:30rpx;
+  margin-right: 30rpx;
+  justify-content: center;
+  background-color:#0aacbb;
+  color:white;
+
+}

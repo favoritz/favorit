@@ -5,7 +5,7 @@
 </view>
 
   <view class="menuTitle">
-    <image class='circle' src=''></image>
+    <image class="titleImage" src='/img/postCategory.png'></image>
     <label class='group_header_title'>发布种类</label>
   </view>
   <view class="menuContent"  wx:for='{{types}}'>
@@ -21,7 +21,7 @@
 
 <view class= "menu">
   <view class="menuTitle">
-    <image class='circle' src='/img/1.png'></image>
+    <image class="titleImage" src='/img/location.png'></image>
     <label class='group_header_title'>选择地点</label>
   </view>
 <view class="location">
@@ -46,7 +46,7 @@
 
 <view class="menu">
   <view class="menuTitle">
-    <image class='circle' src='/img/1.png'></image>
+    <image class="titleImage" src='/img/postDetail.png'></image>
     发布详情
   </view>
   
@@ -61,7 +61,7 @@
     </view>
 
     <view class="menuContent">
-      <image src='/img/1.png' style='width:250rpx;height:250rpx' bindtap='addimage_click'></image>
+      <image src='/img/postCam.png' style='margin-top: 25rpx;margin-left:25rpx; margin-bottom:25rpx;width:250rpx;height:250rpx; background-color:#f3f3f3;' bindtap='addimage_click'></image>
       <view wx:for='{{images}}'>
         <image class='choose_image' src='{{item.path}}'></image>
       </view>
@@ -71,6 +71,9 @@
 
 <view class="menu">
   <view class="menuTitle">
+  <!--
+    <image src='/img/postContact.png'></image>
+    -->
     <text>联系方式</text>
   </view>
   <view class="menuContent">

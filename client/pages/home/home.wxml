@@ -31,7 +31,7 @@
   </swiper-item>
 </swiper>
 </view>
-
+ 
 <view class='announcements_area'>
   <scroll-view class='announcement_scroll'>
     <view class='announcement' wx:for="{{announcements}}">

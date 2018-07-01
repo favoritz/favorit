@@ -2,9 +2,9 @@
 
 <!--pages/profile/profile.wxml-->
 <view class="profile" wx:if='{{state==0}}'>
-    <!--
-    <image style="width:150rpx;height:150rpx; top:200px;" src="/img/1.png"></image>
-    -->
+    
+    <image style="width:350rpx;height:350rpx; margin-top:250rpx; margin-left:28%; " src="/img/login.png"></image>
+    
   <button bindtap='login' style="background-color:#0aacbb; color:white; margin-left:30rpx; margin-right:30rpx;">登陆</button>
 </view>
 
@@ -12,7 +12,7 @@
 <view class="profile" wx:if='{{state==1}}'>
  <view class="userinfo">
   <view>
-    <image src='/img/1.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
+    <image src='/img/avatar.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
   </view>
   <view style="display:flex; flex-direction:column; justify-content: left; padding-top:20rpx;">
     <view style="margin-top:30rpx; margin-bottom:30rpx;">{{profile.username}}</view>

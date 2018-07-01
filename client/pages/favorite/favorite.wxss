@@ -71,7 +71,7 @@
 /*列表 list*/
 .scroll-posts-list{
   overflow: hidden;
-  margin-top: 95rpx;
+  margin-top: 0;
 }
 .posts-list{
   position: relative;

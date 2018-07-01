@@ -29,6 +29,11 @@
    color:#555555;
 }
 
+.titleImage{
+  width: 80rpx;
+  height: 80rpx;
+}
+
 .circle{
     width: 100rpx;
     height: 100rpx;

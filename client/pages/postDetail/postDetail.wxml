@@ -1,6 +1,21 @@
 <!--pages/postDetail/postDetail.wxml-->
 <!-- detail -->
 <page class="page detail">
+
+  <view class='caroussel'>
+    <swiper indicator-dots='true' autoplay='true' interval='2000' duration='500'style='height:600rpx'> 
+      <swiper-item>
+        <button bindtap='btn1'><image src='/img/Costco.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
+      </swiper-item>
+      <swiper-item>
+        <button bindtap='btn2'><image src='/img/talk.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
+      </swiper-item>
+      <swiper-item>
+        <button bindtap='btn3'><image src='/img/banner.jpg' class="slide-image" width="355rpx" height="150rpx"/></button>
+      </swiper-item>
+      </swiper>
+    </view>
+
   <view class="detail-post-meta">
     <view class="detail-post-info">
       <view class="detail-post-author-name">
@@ -18,13 +33,30 @@
           <view class="detail-type-item-font">#置顶#</view>
         </view>
       </view>
+    
+      <view class="detail-post-title">
+        <text> {{detail.post.title}} iPhoneX</text>
+      </view>
+     <view class="bar-info">
+      <view class="bar-info-item">
       <image class="bar-info-item-icon" src="/img/收藏.png"></image>
       <view class="detail-post-time">发表于{{ detail.create_at }}</view>
+      </view>
+      <view class="bar-info-item">
+      <image class="bar-info-item-icon" src="/img/location.png"></image>
       <view class="detail-post-time">发表于{{ detail.create_at }}</view>
+      </view>
+
+    <view>
+        <text class="content-info">{{ detail.content }}出一台全新Iphonx，未拆，含Receipt，Guy Concordia地铁站面交或上门自取。</text>
+     </view>
+      </view>
     </view>
+
 
     <view class="detail-collect-item" id="{{detail.id}}" catchtap="collect" wx:if="{{detail.is_collect == true}}">取消收藏</view>
     <view class="detail-collect-item" id="{{detail.id}}" catchtap="collect" wx:if="{{detail.is_collect == false}}">收藏</view>
+
   </view>
 
   <view class="detail-post-header">
@@ -34,10 +66,7 @@
       <view class="detail-posts-tag" wx:if="{{detail.good === true}}">精华</view>
       {{ detail.title }}
     </view>
-  </view>
 
-  <view class="detail-post-content">
-    <text class="content-info">{{ detail.content }}</text>
   </view>
 
   <view class="userinfo">
