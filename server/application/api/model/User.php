@@ -32,7 +32,7 @@ class User extends  Model
             $uid = $user["id"];
         }
         else
-            $uid = '0';  //创建新用户
+            $uid = UserToken::newUser($openid);  //创建新用户
         return $uid;
     }
 

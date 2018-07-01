@@ -10,11 +10,9 @@ namespace app\api\controller\v1;
 
 use app\api\model\Posts as PostModel;
 use app\api\model\User;
-use app\api\service\Token;
 use app\api\service\UserToken;
 use app\lib\exception\PostException;
 use app\lib\exception\UserException;
-use think\Exception;
 
 class Posts
 {

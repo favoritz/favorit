@@ -78,9 +78,7 @@ class UserToken extends Token
         if($user){
            $uid = $user['id'];
         }
-        else{
-           $uid = $this->newUser($openid);
-        }
+
         $cachedValue = $this->prepareCachedValue($wxResult,$uid);
         $token = $this->saveToCache($cachedValue);
 
@@ -129,16 +127,11 @@ class UserToken extends Token
      * @return mixed
      * 创建新用户
      */
-    private function newUser($openid)
+    public static function newUser($openid)
     {
-        $user = User::create([
+       $user = User::create([
             'openId' => $openid
         ]);
-        $data = [
-            'openId' => $openid
-        ];
-
-        $user = Db::name('users')->insertGetId($data);
         return $user["id"];
     }
 

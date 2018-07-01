@@ -9,7 +9,6 @@
 namespace app\api\controller\v1;
 use app\api\model\Replies as RepliesModel;
 use app\api\model\User;
-use app\api\service\UserToken;
 use app\lib\exception\UserException;
 
 class Replies

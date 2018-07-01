@@ -7,8 +7,6 @@
  */
 
 namespace app\api\validate;
-
-
 use think\Validate;
 
 class DataValidate extends Validate
