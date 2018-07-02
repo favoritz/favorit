@@ -4,7 +4,8 @@ var config = require('./config')
 
 App({
   data: {
-    'url':'localhost/',
+    'tempdata':'',
+    'url':'http://www.favorit.com/api/v1/',
     'sessionid':null,
     'profile': null,
     'testprofile':{
