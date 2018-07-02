@@ -12,6 +12,6 @@ namespace app\lib\exception;
 class WeChatException extends  BaseException
 {
     public $code = '400';
-    public $msg = 'failed to call WeChat service';
-    public $errorCode = 999;
+    public $msg = '微信数据获取失败';
+    public $errorCode = 50000;
 }

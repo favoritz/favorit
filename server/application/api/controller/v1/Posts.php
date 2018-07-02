@@ -16,14 +16,14 @@ use app\lib\exception\UserException;
 
 class Posts
 {
+    /*
     private function getPostAndRepliesByID(){
         $id = input('param.id');
         $post = PostModel::with('replies')->find($id);
-    }
+    }*/
     public function getPostByID(){
         $id = input('param.id');
         $post = PostModel::get($id);
-
         if(!$post){
             throw  new PostException();
         }

@@ -12,6 +12,7 @@ use app\lib\exception\TokenException;
 use app\lib\exception\WeChatException;
 use think\Cache;
 use think\Db;
+use think\Exception;
 use think\Request;
 
 
@@ -46,8 +47,7 @@ class UserToken extends Token
         $result = curl_get($this->wxLoginUrl);
         $wxResult = json_decode($result, true); //true为数组
         if(empty($wxResult)){   //异常将记录在日志
-            throw new Exception("getting session_key ann openID error,error from wechat");
-            //return null;
+            throw new WeChatException();
         }
         else{
             $loginFail = array_key_exists('errcode',$wxResult);
@@ -159,7 +159,7 @@ class UserToken extends Token
                 return $vars[$key];
             }
             else{
-                throw new Exception('尝试获取的Token变量不存在');
+                throw new TokenException();
             }
         }
     }

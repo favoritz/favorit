@@ -31,8 +31,9 @@ class ExceptionHandler extends Handle
         }
         else{
             $this->code = 500;
-            $this->msg = 'server error';
-            $this->errorCode = 999;
+            $this->msg = '服务器异常';
+            $this->errorCode = 9999;
+            $this->recordErrorLog($e);
         }
         $request = Request::instance();
 
