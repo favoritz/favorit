@@ -1,19 +1,29 @@
 // pages/home/home.js
 Page({
-  btn1: function(){
-    console.log('1');
-  },
-  btn2: function () {
-    console.log('2');
-  },
-  btn3: function () {
-    console.log('3');
+  btn1: function(e){
+    console.log(e.target.id)
+    wx.navigateTo({
+      url: e.target.id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   /**
    * 页面的初始数据
    */
   data: {
     loading:false,
+    carousselitems:[{
+      'imgsrc':'/img/Costco.jpg',
+      'linkpage':'a'
+    },{
+      'imgsrc':'/img/talk.jpg',
+      'linkpage':'b'
+    },{
+      'imgsrc':'/img/banner.jpg',
+      'linkpage':'c'
+    }],
     posts: [
       {
         "id": 1,
@@ -28,7 +38,8 @@ Page({
         "last_reply_at": "2天前",
         "reply_count": "0",
         "visit_count": "0",
-        "tab": "ask"
+        "tab": "ask",
+        'imgsrc':'/img/detailPreview.jpg'
 
       },
       {
@@ -44,7 +55,8 @@ Page({
         "last_reply_at": "xxx",
         "reply_count": "0",
         "visit_count": "0",
-        "tab": "ask"
+        "tab": "ask",
+        'imgsrc': '/img/detailPreview.jpg'
       },
       {
         "id": 3,
@@ -59,7 +71,8 @@ Page({
         "last_reply_at": "xxx",
         "reply_count": "0",
         "visit_count": "0",
-        "tab": "ask"
+        "tab": "ask",
+        'imgsrc': '/img/detailPreview.jpg'
       },
       {
         "id": 4,
@@ -73,7 +86,8 @@ Page({
         "last_reply_at": "xxx",
         "reply_count": "0",
         "visit_count": "0",
-        "tab": "ask"
+        "tab": "ask",
+        'imgsrc': '/img/detailPreview.jpg'
       },
       {
         "id": 5,
@@ -87,7 +101,8 @@ Page({
         "last_reply_at": "xxx",
         "reply_count": "0",
         "visit_count": "0",
-        "tab": "ask"
+        "tab": "ask",
+        'imgsrc': '/img/detailPreview.jpg'
       },
       {
         "id": 6,
@@ -105,9 +120,11 @@ Page({
       }
     ],
     announcements:[{
-      "name":"Favorit玩法介绍"
+      "name":"Favorit玩法介绍",
+      'linkpage':''
     },{
-      "name":"Favorit改版详情"
+      "name":"Favorit改版详情",
+      'linkpage':''
     }]
   },
 
@@ -129,12 +146,31 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.startPullDownRefresh({
+    var that = this
+    wx.request({
+      url: getApp().data.url + 'carousselitems',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
     })
-    var that = this
+    wx.request({
+      url: getApp().data.url+'announcements/',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData({'announcements':res.announcements})
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
     wx.request({
       url: getApp().data.url+'recent/'+this.data.posts.length,
       data: '',
@@ -165,6 +201,15 @@ Page({
       complete: function (res) {
          
       }
+    })
+  },
+  showdetail:function(e){
+    getApp().data.tempdata = e.target.id
+    wx.navigateTo({
+      url: '/pages/postDetail/postDetail',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   },
 

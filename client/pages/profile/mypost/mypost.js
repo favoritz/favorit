@@ -103,9 +103,9 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: getApp().data.url+'myposts/'+getApp().data.sessionid,
+      url: getApp().data.url+'myposts/',
       data: '',
-      header: {},
+      header: {'token':getApp().data.sessionid},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
@@ -115,13 +115,14 @@ Page({
       fail: function(res) {
         wx.showModal({
           title: '错误',
-          content: res.errMsg,
+          content: '网络链接失败 请检查网络',
           showCancel: false,
           cancelText: '',
           cancelColor: '',
           confirmText: '确认',
           confirmColor: ''
         })
+        
       },
       complete: function(res) {},
     })

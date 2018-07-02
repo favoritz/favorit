@@ -52,7 +52,7 @@ Page({
         }
       }
     })
-
+    
   },
   logout:function(e){
     getApp().data.sessionid = null
