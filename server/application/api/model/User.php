@@ -63,7 +63,7 @@ class User extends  Model
         if(!$user['todocount']){  //值null时置为0
             $user['todocount']='0';
         }
-
+        $user['mobile'] = $user['phone'];
         return $user;
     }
 
