@@ -12,25 +12,39 @@
 }
 
 .my{
-  display:block;
+  display:flex;
+  flex-direction: column;
   margin-top:10rpx;
   margin-bottom:40rpx;
 }
 .my navigator{
+  display:inline-flex;
   background-color: white;
   height:100rpx; 
+  line-height:100rpx;
   color:#555555; 
   font-weight:600; 
   vertical-align: center;
+  align-items: center;
   border-bottom: 4rpx solid #f3f3f3;
+}
+
+.my navigator .titleImage{
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 25rpx;
+}
+
+.my navigator .rightImage{
+  height:40rpx;
+  width:40rpx;
+  margin-left: 55%;
 }
 
 .my navigator text{
   display:flex;
-  flex-direction:column;
   justify-content: flex-start;
   padding-left:30rpx;
   vertical-align:middle;
-  padding-top:17rpx;
 }
 

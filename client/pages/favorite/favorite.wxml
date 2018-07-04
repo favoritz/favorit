@@ -5,8 +5,8 @@
   <view class="postslist">
     <block wx:for="{{favorites}}"  wx:key="">
       <view class="posts-list">
-        <navigator url="/pages/QA/detail/detail">
-          <image class="previewimage" src='/img/1.png' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
+        <navigator url="/pages/postDetail/postDetail">
+          <image class="previewimage" src='/img/detailPreview.jpg' style='width:80px;height:80px;float:left; vertical-align:center;'></image>
           <view class="posts-list-info" index="{{index}}">
              
               <view class="item-box">

@@ -1,15 +1,136 @@
-/* pages/filter/filter.wxss */
-.group{
-  height: 200px;
+/* pages/post/post.wxss */
+.topbtn{
+  display:flex;
+  padding-top:10rpx;
+  margin-bottom:10rpx;
 }
-.group_header_icon{
-  height: 20px;
-  width: 20px;
+.menu{
+   
 }
+.menuTitle{
+  display:flex;
+  height:100rpx;
+  line-height:100rpx;
+  align-items: center;
+  vertical-align: middle;
+  color: #555555;
+  background-color: white;
+  margin-top:10rpx;
+  margin-bottom:8rpx;
+}
+
+.menuTitle image{
+  margin-left:20rpx;
+  margin-right: 20rpx;
+  height:80rpx;
+  width:80rpx;
+}
+
+.menuContent{
+  display:flex;
+  flex-direction: row;
+  background-color: white;
+  color:#555555;
+  width:100%;
+  justify-content: space-between;
+}
+
+.location{
+   background-color: white;
+   color:#555555;
+   display:flex;
+   flex-direction: column;
+}
+
+.titleImage{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.circle{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 500px;
+    background-color: #cccccc;
+
+}
+
+.circle2{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 500px;
+    background-color: #cccccc;
+    padding-top:9rpx;
+    padding-left:9rpx;
+}
+
+.circleSelected{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 500px;
+    background-color: #0aacbb;
+    display:flex;
+}
+
+.circleSelected2{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 500px;
+    background-color: #0aacbb;
+    display:flex;
+}
+
 .type_item{
-  float: left
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  justify-content: space-around;
+  padding-top:15rpx;
+}
+.type_item .item{
+  display:flex; 
+  flex-direction:column;
 }
 .type_item_image{
+  display:flex;
   height: 30px;
   width: 30px;
+}
+
+.postTitle{
+  font-size:36rpx;
+  display:flex;
+  height:100rpx;
+  align-items: center;
+  line-height:100rpx;
+  color: #555555;
+  background-color: white;
+  margin-bottom:8rpx;
+}
+
+radio-group label{
+  display:flex;
+  font-size:34rpx;
+}
+radio-group label text{
+  font-size:34rpx;
+}
+
+checkbox-group label{
+  display:flex;
+  font-size:34rpx;
+}
+checkbox-group label text{
+  font-size:34rpx;
+}
+
+.radioChoice{
+  display:flex;
+  flex-direction: row;
+  margin:10rpx 0 10rpx 25rpx;
+}
+
+.radioChoice label{
+  width:350rpx;
+  font-size:32rpx;
 }

@@ -20,8 +20,8 @@
 
 <view class='caroussel'>
 <swiper indicator-dots='true' autoplay='true' interval='2000' duration='500'>
-  <swiper-item wx:for="{{carousselitems}}">
-    <button bindtap='btn1' id='{{item.linkpage}}'><image src='{{item.imgsrc}}' class="slide-image" width="355rpx" height="150rpx"/></button>
+  <swiper-item wx:for="{{carousselitems}}" style="width:100%; margin-left:-15rpx;">
+    <button bindtap='btn1' id='{{item.linkpage}}'><image src='{{item.imgsrc}}' class="slide-image" width="100%" height="150rpx"/></button>
   </swiper-item>
 </swiper>
 </view>

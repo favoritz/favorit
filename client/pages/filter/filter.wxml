@@ -1,42 +1,107 @@
 <!--pages/filter/filter.wxml-->
-<text>pages/filter/filter.wxml</text>
-<view class='type'>
-  <button class='type_btn'>正在出售</button>
-  <button class='type_btn'>正在求购</button>
-</view>
-<view class='group'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>发布种类(可多选)</label>
+  <view class='topbtn'>
+  <button style="width:50%; background-color:white;" >正在出售</button>
+  <button style="width:50%; background-color:white;" >正在求购</button>
+  </view> 
+  <view class="menuTitle">
+    <image class="titleImage" src='/img/postCategory.png'></image>
+    <label class='group_header_title'>发布种类（可多选）</label>
   </view>
-  <view class='group_body' wx:for='{{types}}'>
+  <view class="menuContent" >
     <view class='type_item'>
-      <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}'/>
-      <image wx:if='{{!item.selected}}' class='type_item_image' src='{{item.icon_unselected}}' bindtap='type_click' id='{{item.index}}'/>
-      <label>{{item.name}}</label>
+      <view wx:for='{{types}}' class="items">
+        <view wx:if='{{item.selected}}' class='circleSelected'>
+          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}'class='circleSelected2'/>
+        </view>
+
+        <view wx:if='{{!item.selected}}' class='circle'>
+          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}' class='circle2'/>
+        </view>
+
+        <view>
+          <label style="font-size:24rpx; text-align:center;">{{item.name}}</label>
+        </view>
+      </view>
     </view >
   </view>
-</view>
 
-<view class='group'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>选择地点(可多选)</label>
-  </view>
-  <view class='group_body' wx:for='{{locations}}'>
-    <view class='type_item'>
-      <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='location_click' id='{{item.index}}'/>
-      <image wx:if='{{!item.selected}}' class='type_item_image' src='{{item.icon_unselected}}' bindtap='location_click' id='{{item.index}}'/>
-      <label>{{item.name}}</label>
-    </view >
-  </view>
-</view>
 
-<view class='group'>
-  <view class='group_header'>
-    <image class='group_header_icon' src='/img/1.png'></image>
-    <label class='group_header_title'>排序方式</label>
+  <view class="menuTitle">
+    <image class="titleImage" src='/img/location.png'></image>
+    <label class='group_header_title'>选择地点（可多选）</label>
   </view>
+   <view class="location">
+    <view class="radioChoice" style="font-size:24rpx; color:#0aacbb; margin-left:25rpx;">
+      点击这里查看区域划分~
+    </view>
+    
+    <checkbox-group bindchange="location_click" style="display:flex; flex-direction:column; justify-contend:space-around;">
+      <view class="radioChoice" >
+        <label>
+          <checkbox value="0"></checkbox>
+          <view>Laval</view>  
+        </label>
+        <label>
+          <checkbox value="1" ></checkbox>
+          <view>南岸</view>  
+        </label>
+      </view>
+        <view class="radioChoice" >
+        <label>
+          <checkbox value="2"></checkbox>
+          <view>西岛</view>  
+        </label>   
+        <label>
+          <checkbox value="3"></checkbox>
+          <view>市区附近</view>   
+        </label>
+      </view>
+      <view class="radioChoice" >
+        <label>
+          <checkbox value="4"></checkbox>
+          <view>St.Laurent附近</view> 
+        </label>
+        <label>
+          <checkbox value="5" ></checkbox>
+          <view>Verdun/Lasalle附近</view>  
+        </label>
+      </view>
+      <view class="radioChoice" >  
+        <label>
+          <checkbox value="6"></checkbox>
+          <view>CDN/NDG附近</view>  
+        </label>   
+        <label>
+          <checkbox value="7"></checkbox>
+          <view>奥林匹克附近及以东</view>   
+        </label>
+      </view>
+    </checkbox-group>
+  </view>
+  
+
+
+  <view class="menuTitle">
+    <image class="titleImage" src='/img/filterSort.png'></image>
+    <label class='group_header_title'>排序</label>
+  </view>
+
+  <view class="menuContent">
+    <radio-group bindchange="radioChange" style="display:flex; flex-direction:column; ">
+      <view wx:for="{{sorting}}" style="margin:10rpx 0 10rpx 25rpx;" >
+        <label  style="height:60rpx;line-height:60rpx;">
+          <radio value="{{item.name}}" checked="{{item.checked}}"></radio>
+          <view>{{item.value}}</view>  
+        </label>
+      </view>  
+        <!--
+      <label class="radio" wx:for="{{sorting}}" style="height:60rpx;line-height:60rpx;">
+        <radio value="{{item.name}}" checked="{{item.checked}}" style="margin:10rpx 0 10rpx 25rpx;height:60rpx;line-height:60rpx;"/>{{item.value}}
+      </label>
+      -->
+    </radio-group>
+  </view>  
+ <!--
   <view class='group_body' wx:for='{{sortings}}'>
     <view class='type_item'>
       <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='sorting_click' id='{{item.index}}'/>
@@ -44,8 +109,6 @@
       <label>{{item.name}}</label>
     </view >
   </view>
-</view>
+-->
 
-<view>
-  <button bindtap='search_click'>开始搜索</button>
-</view>
+<button bindtap='search' style="background-color:#0aacbb; color:white; margin-left:30rpx; margin-right:30rpx; margin-bottom:30rpx; margin-top:30rpx;">开始搜索</button>

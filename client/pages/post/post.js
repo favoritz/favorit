@@ -9,7 +9,7 @@ Page({
     'locations': [{
       'index': 0,
       'name': 'Laval',
-      'icon_selected': '/img/1.png',
+      'icon_selected': '/img/categoryBook.png',
       'icon_unselected': '/img/2.png',
       'selected': false
     }, {
@@ -33,74 +33,74 @@ Page({
     }, {
       'index': 4,
       'name': '市区附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/location.png',
+      'icon_unselected': '/img/location2.png',
       'selected': false
     }, {
       'index': 5,
       'name': 'Verdun/Lasalle附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/location.png',
+      'icon_unselected': '/img/location2.png',
       'selected': false
     }, {
       'index': 6,
       'name': 'CDN/NDG附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/location.png',
+      'icon_unselected': '/img/location2.png',
       'selected': false
     }, {
       'index': 7,
       'name': '奥林匹克附近以及东',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/location.png',
+      'icon_unselected': '/img/location2.png',
       'selected': false
     }],
     'types': [{
       "name": '家具家居',
       'index': 0,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryFurniture.png',
+      'icon_unselected': '/img/categoryFurniture.png',
       'selected': false
     }, {
       "name": '电器数码',
       'index': 1,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryPC.png',
+      'icon_unselected': '/img/categoryPC.png',
       'selected': false
     }, {
       "name": '服装饰品',
       'index': 2,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryCloth.png',
+      'icon_unselected': '/img/categoryCloth.png',
       'selected': false
     }, {
       "name": '美妆护肤',
       'index': 3,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryCosm.png',
+      'icon_unselected': '/img/categoryCosm.png',
       'selected': false
     }, {
       "name": '书籍课本',
       'index': 4,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryBook.png',
+      'icon_unselected': '/img/categoryBook.png',
       'selected': false
     }, {
       "name": '其他分类',
       'index': 5,
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
+      'icon_selected': '/img/categoryOther.png',
+      'icon_unselected': '/img/categoryOther.png',
       'selected': false
     }],
     'location': [
-      { 'name': '0', 'value': 'Laval' },  
-      { 'name': '1', 'value': '南岸' },
-      { 'name': '2', 'value': '西岛' },
-      { 'name': '3', 'value': 'Saint-Laurent 附近' },
-      { 'name': '4', 'value': '市区附近' },
-      { 'name': '5', 'value': 'Verdun/Lasalle 附近' },
-      { 'name': '6', 'value': 'CDN/NDG 附近' },
-      { 'name': '7', 'value': '奥林匹克 附近及以东' }
+      { 'index': '0', 'value': 'Laval' },  
+      { 'index': '1', 'value': '南岸' },
+      { 'index': '2', 'value': '西岛' },
+      { 'index': '3', 'value': 'Saint-Laurent 附近' },
+      { 'index': '4', 'value': '市区附近' },
+      { 'index': '5', 'value': 'Verdun/Lasalle 附近' },
+      { 'index': '6', 'value': 'CDN/NDG 附近' },
+      { 'index': '7', 'value': '奥林匹克 附近及以东' }
     ]  
   },
 

@@ -1,72 +1,100 @@
 <!--pages/postDetail/postDetail.wxml-->
 <!-- detail -->
-<view class="page detail">
+<view style="display:flex; flex-direction:coloumn;">
+<scroll-view class="page detail" style="flex=1;padding-bottom:100rpx;">
 
+  
+    <view class="detail-collect-item" id="false" bindtap='collect' wx:if="{{detail.is_collect == true}}">取消收藏 
+    </view>
+    <view class="detail-collect-item" id="true" bindtap="collect" wx:if="{{detail.is_collect == false}}">收藏 
+    </view>
+
+ 
   <view class='caroussel'>
-    <swiper indicator-dots='true' autoplay='true' interval='2000' duration='500'style='height:600rpx'> 
-      <swiper-item wx:for="{{caroussel}}">
-        <image src='{{item.imgsrc}}' class="slide-image" width="355rpx" height="150rpx"/>
+    <swiper indicator-dots='true' autoplay='true' interval='2000' duration='500'style='height:550rpx'> 
+      <swiper-item wx:for="{{carousselItems}}">
+        <image src='{{item.imgsrc}}' class="slide-image" height="550rpx"/>
       </swiper-item>
     </swiper>
-    </view>
+  </view>
 
   <view class="detail-post-meta">
     <view class="detail-post-info">
       <view class="detail-post-author-name">
-        <text>{{username }}</text>
+        <text>{{title }}</text>
         <view class="detail-type-item">
           <view class="detail-type-item-font">{{type}}</view>
         </view>
       </view>
-    
-      <view class="detail-post-title">
-        <text> {{title}}</text>
-      </view>
-     <view class="bar-info">
-      <view class="bar-info-item">
-      <image class="bar-info-item-icon" src="/img/收藏.png"></image>
-      <view class="detail-post-time">发表于:{{createTime }}</view>
-      </view>
-      <view class="bar-info-item">
-      <image class="bar-info-item-icon" src="/img/location.png"></image>
-      <view class="detail-post-time">发表于:{{createLocation }}</view>
+
+      <view class="detail-post-price" style="margin-top:5rpx;">
+        <text>${{price}}</text>
       </view>
 
-    <view>
-        <text class="content-info">{{content }}</text>
-     </view>
+      <view style="inline-block" style="margin-top:0;">
+        <view class="bar-info" style="margin-top:0;">
+          <view class="bar-info-item" style="margin-top:0;">
+            <image class="bar-info-item-icon" src="/img/detailTime.png"></image>
+            <view class="detail-post-time">{{create_at }}</view>
+          </view>
+          <view class="bar-info-item" style="margin-top:0;">
+            <image class="bar-info-item-icon" src="/img/location2.png"></image>
+            <view class="detail-post-time">{{location }}</view>
+          </view>
+        </view>
+
+        <view style="margin-top:15rpx;">
+          <text class="content-info" style="color:black">{{content }}</text>
+        </view>
+
+        <view style="inline-block">
+          <view class="bar-info" style="flex-direction:row-reverse">
+            <view class="bar-info-item" >
+              <view class="detail-post-time" style="color:#0aacbb">举报</view>
+            </view>
+            <view class="bar-info-item" >
+              <image class="bar-info-item-icon" src="/img/readCount.png"></image>
+              <view class="detail-post-time" style="color:black">{{readCount}}</view>
+            </view>
+          </view>
+        </view>
       </view>
     </view>
-
-
-    <view class="detail-collect-item" id="false" bindtap='collect' wx:if="{{detail.is_collect == true}}">取消收藏</view>
-    <view class="detail-collect-item" id="true" bindtap="collect" wx:if="{{detail.is_collect == false}}">收藏</view>
-
   </view>
-
-  <view class="detail-post-header">
+ 
+    <!--
+    <view class="detail-post-header">
     <view class="detail-post-title">
       <view class="detail-posts-tag hot" wx:if="{{top}}">置顶</view>
       <view class="detail-posts-tag" wx:if="{{good}}">精华</view>
       {{ detail.title }}
     </view>
 
-  </view>
-
+    </view>
+    -->
   <view class="userinfo">
-  <view>
-    <image src='/img/avatar.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
-  </view>
-  <view style="display:flex; flex-direction:column; justify-content: left; padding-top:20rpx;">
-    <view style="margin-top:30rpx; margin-bottom:30rpx;">{{profile.username}}</view>
-    <view style="color:#555555; font-size:32rpx;">已发布： {{profile.todocount}}件</view>
-    <view style="color:#555555; font-size:32rpx;">已完成： {{profile.donecount}}件</view>
-  </view>
+    <view>
+     <image src='/img/avatar.png' style='float:left;height:100px;width:100px; margin-right:30rpx;'></image>
+    </view>
+    <view style="display:flex; flex-direction:column; justify-content: left; padding-top:20rpx;">
+      <view style="margin-top:30rpx; margin-bottom:30rpx;">{{username}}</view>
+      <view style="color:#555555; font-size:32rpx;">已发布： {{userPostCount}}件</view>
+      <view style="color:#555555; font-size:32rpx;">已完成： {{userDoneCount}}件</view>
+    </view>
+    <view style="display:flex; flex-direction:row-reverse;align-items:center; margin-left:10%;">
+     <image src='/img/myArrorw.png' style='height:30rpx;width:30rpx;'></image>
+    </view>
   </view>
 
+  <view class="ads">
+    <view class="words"> <text>[广告]</text></view>
+    <image src='/img/banner.jpg' style="height:100%;"></image>
+  </view>
 
   <view class="detail-post-comment">
-    <view class="detail-post-comment-title">评论</view>
+    <view class="detail-post-comment-title">
+      <text>评论</text>
+    </view>
     <view class="detail-post-comment-list">
       <block wx:for="{{replies }}" wx:if="{{replies.length > 0}}">
         <view class="detail-post-comment-item" index="{{item.index}}" id="{{item.id}}">
@@ -80,7 +108,7 @@
                 <view class="detail-post-comment-time">{{index + 2}}楼 发表于{{ item.createTime }}</view>
               </view>
               <view class="detail-post-comment-info-cell" style="text-align:right" id="{{item.id}}" data-index="{{index}}" catchtap="reply">
-                <image class="detail-post-zan" mode="scaleToFill" src="/images/icon/zan.png"></image>
+                <image class="detail-post-zan" mode="scaleToFill" src="/images/icon/favorite.png"></image>
                 <text class="detail-post-zan-num" wx:if="{{item.zanNum > 0}}">{{item.zanNum}}</text>
               </view>
             </view>
@@ -100,5 +128,20 @@
 
     </view>
   </view>
-</view>
+</scroll-view>
 
+  <view class="bottom">
+    <button> 
+      <image src="/img/favorite.png"></image>
+      <view style="color:black">收藏</view>
+    </button>
+    <button> 
+      <image src="/img/myContact.png"></image>
+      <view style="color:black">联系</view>
+    </button>
+    <button> 
+      <image src="/img/myReply.png"></image>
+      <view style="color:black">回复</view>
+    </button> 
+  </view>
+</view>

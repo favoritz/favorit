@@ -6,13 +6,16 @@ button{
   color:#555555;
 }
 .my{
-  display:block;
+  display:flex;
+  flex-direction: column;
   margin-top:45rpx;
   margin-bottom:45rpx;
 }
 .my .contact{
   background-color: white;
+  display:flex;
   height:100rpx; 
+  line-height:100rpx;
   color:#555555; 
   font-weight:600; 
   align-items: center;
@@ -21,11 +24,18 @@ button{
 
 .my .contact text{
   display:flex;
-  flex-direction:column;
   justify-content: flex-start;
   padding-left:30rpx;
+  align-items: center;
   vertical-align:middle;
-  padding-top:17rpx;
+}
+
+.my .contact input{
+  display:flex;
+  justify-content: flex-start;
+  padding-left:30rpx;
+  align-items: center;
+  vertical-align:middle;
 }
 .my button{
   margin-top:100rpx; 

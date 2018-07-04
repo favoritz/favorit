@@ -2,18 +2,26 @@
 <view class='topbtn'>
   <button style="width:50%; background-color:white;" >出二手</button>
   <button style="width:50%; background-color:white;" >求二手</button>
-</view>
+</view> 
 
   <view class="menuTitle">
     <image class="titleImage" src='/img/postCategory.png'></image>
     <label class='group_header_title'>发布种类</label>
   </view>
-  <view class="menuContent"  wx:for='{{types}}'>
+  <view class="menuContent" >
     <view class='type_item'>
-      <image wx:if='{{item.selected}}' class='circleSelected' src='' bindtap='type_click' style="width:25%;" id='{{item.index}}'/>
-      <image wx:if='{{!item.selected}}' class='circle' src='' bindtap='type_click' id='{{item.index}}'/>
-      <view>
-        <label>{{item.name}}</label>
+      <view wx:for='{{types}}' class="items">
+        <view wx:if='{{item.selected}}' class='circleSelected'>
+          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}'class='circleSelected2'/>
+        </view>
+
+        <view wx:if='{{!item.selected}}' class='circle'>
+          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}' class='circle2'/>
+        </view>
+        
+        <view>
+          <label style="font-size:24rpx; text-align:center;">{{item.name}}</label>
+        </view>
       </view>
     </view >
   </view>
@@ -24,15 +32,54 @@
     <image class="titleImage" src='/img/location.png'></image>
     <label class='group_header_title'>选择地点</label>
   </view>
-<view class="location">
-  <radio-group bindchange="radioChange" >
-    <label  wx:for="{{location}}">
-        <radio value="{{name}}"></radio>
-        <view>{{item.value}}</view>
-        <!-- 其他布局代码 -->    
-    </label>   
-  </radio-group>
-</view>
+  <view class="location">
+    <view class="radioChoice" style="font-size:24rpx; color:#0aacbb; margin-left:25rpx;">
+      点击这里查看区域划分~
+    </view>
+    
+    <radio-group bindchange="radioChange" style="display:flex; flex-direction:column; justify-contend:space-around;">
+      <view class="radioChoice" >
+        <label>
+          <radio value="0"></radio>
+          <view>Laval</view>  
+        </label>
+        <label>
+          <radio value="1" ></radio>
+          <view>南岸</view>  
+        </label>
+      </view>
+        <view class="radioChoice" >
+        <label>
+          <radio value="2"></radio>
+          <view>西岛</view>  
+        </label>   
+        <label>
+          <radio value="3"></radio>
+          <view>市区附近</view>   
+        </label>
+      </view>
+      <view class="radioChoice" >
+        <label>
+          <radio value="4"></radio>
+          <view>St.Laurent附近</view> 
+        </label>
+        <label>
+          <radio value="5" ></radio>
+          <view>Verdun/Lasalle附近</view>  
+        </label>
+      </view>
+      <view class="radioChoice" >  
+        <label>
+          <radio value="6"></radio>
+          <view>CDN/NDG附近</view>  
+        </label>   
+        <label>
+          <radio value="7"></radio>
+          <view>奥林匹克附近及以东</view>   
+        </label>
+      </view>
+    </radio-group>
+  </view>
   <!--
   <view class="menuContent" wx:for='{{locations}}'>
     <view class='type_item'>
@@ -57,11 +104,11 @@
       <textarea placeholder='详情：可输入细节描述，越详细越容易被关注哟' ></textarea>
     </view>
     <view class='postTitle' >
-      <label>图片:\n</label>
+      <label style="margin-left:25rpx;">图片:</label>
     </view>
 
     <view class="menuContent">
-      <image src='/img/postCam.png' style='margin-top: 25rpx;margin-left:25rpx; margin-bottom:25rpx;width:250rpx;height:250rpx; background-color:#f3f3f3;' bindtap='addimage_click'></image>
+      <image src='/img/postCam.png' style='margin-top: 25rpx; margin-left:25rpx; margin-bottom:25rpx;width:250rpx;height:250rpx; background-color:#f3f3f3; border-radius:5px;' bindtap='addimage_click'></image>
       <view wx:for='{{images}}'>
         <image class='choose_image' src='{{item.path}}'></image>
       </view>
@@ -71,21 +118,19 @@
 
 <view class="menu">
   <view class="menuTitle">
-  <!--
-    <image src='/img/postContact.png'></image>
-    -->
+    <image class="titleImage"src='/img/postContact.png'></image>
     <text>联系方式</text>
   </view>
   <view class="menuContent">
     <button style="width:100%; height: 100rpx; background-color:white; color: #555555">
-      default communication method
+      默认联系方式
     </button>
   </view>
   <view class="menuContent">
     <button style="width:100%; height: 100rpx; background-color:white; color: #555555">
-      <input placeholder='phone'></input>
+      <input placeholder='手动输入：建议输入微信或手机号，提高信任度'></input>
     </button>
   </view>
 </view>
 
-<button>submit</button>
+<button bindtap='submit' style="background-color:#0aacbb; color:white; margin-left:30rpx; margin-right:30rpx; margin-bottom:30rpx; margin-top:30rpx;">确认发布</button>

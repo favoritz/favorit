@@ -23,15 +23,21 @@
 
  <view class="my">
     <navigator open-type='navigate'  url='../profile/contact/contact'>
+        <image class="titleImage" src='/img/myContact.png'></image>
         <text class= "text">联系方式</text>
+        <image class="rightImage" src="/img/myArrow.png"> </image>
     </navigator>
 
   <navigator open-type='navigate'  url='../profile/mypost/mypost'>
+        <image class="titleImage" src='/img/myPost.png'></image>
         <text class= "text">我发布的</text>
+        <image class="rightImage" src="/img/myArrow.png"> </image>
     </navigator>
 
   <navigator open-type='navigate'  url='../profile/myreply/myreply'>
+        <image class="titleImage" src='/img/myReply.png'></image>
         <text class= "text">我回复的</text>
+        <image class="rightImage" src="/img/myArrow.png"> </image>
     </navigator>
 </view>
 
