@@ -9,14 +9,14 @@
 namespace app\api\controller\v1;
 
 use app\api\model\Favorites;
+use app\api\model\PostList;
 use app\api\model\Posts as PostModel;
-use app\lib\exception\PostException;
 
 class Posts
 {
-
     public function myPosts(){
         $posts = PostModel::myPosts();
+
         return $posts;
     }
 
@@ -33,11 +33,19 @@ class Posts
 
     public function postDetail(){
         $threadid = input('param.threadid');
-        $detail = PostModel::get($threadid);
-        if(!$detail){
-            throw new PostException();
-        }
+        $detail = PostModel::getDetail($threadid);
         return $detail;
+    }
+
+    public function addPost(){
+        $post = new PostModel([
+            'title' => 'testAdd',
+            'author' => 'abin',
+            'userid' => 1,
+            'content' => 'testContent'
+        ]);
+        $post->save();
+
     }
 
 }

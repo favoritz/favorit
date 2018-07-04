@@ -96,10 +96,12 @@ class UserToken extends Token
      * 写入缓存
      */
     private function saveToCache($cachedValue){
-        $key = Token::generateToken();
-        $value = json_encode($cachedValue);
-        $expire_in = config('setting.token_expire_in');
-        $request = cache($key,$value,$expire_in);
+        $key = Token::generateToken();   //token
+        $value = json_encode($cachedValue);  //openid,uid,scope
+        $expire = config('setting.token_expire_in');
+        $request = cache($key,$value,$expire);
+       // $request = Cache::set()
+
 
         if(!$request){
             throw new TokenException([

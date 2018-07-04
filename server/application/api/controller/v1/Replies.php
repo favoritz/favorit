@@ -13,12 +13,6 @@ use app\lib\exception\UserException;
 
 class Replies
 {
-    /**
-     * @return
-     * @throws UserException
-     * 根据Token来获取uid
-     * 根据uid来查找用户数据，判断用户是否存在，如果不存在抛出异常
-     */
     public function myReplies(){
         $uid = User::getUserIDFromCache();
         $replies = RepliesModel::getMyReplies($uid);

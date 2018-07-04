@@ -6,5 +6,5 @@
  * Time: 0:33
  */
 return [
-    'token_expire_in' => 7200
+    'token_expire_in' => 72
 ];

@@ -8,6 +8,8 @@
 
 namespace app\api\model;
 use app\api\service\UserToken;
+use app\lib\exception\PostException;
+use app\lib\exception\UserException;
 use think\Db;
 use think\Model;
 
@@ -25,6 +27,14 @@ class Favorites extends Model
             ->where('f.user_id','=',$uid)
             ->join('threads','threads.id=f.thread_id')
             ->select();
+
+        if(!$favorites){
+            $e = new PostException([
+                'msg' => '当前无收藏!',
+                'error_code' => 40002
+            ]);
+            throw $e;
+        }
         return $favorites;
     }
 }
