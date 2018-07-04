@@ -21,3 +21,10 @@
     //recent为路径传参
     Route::get('api/v1/recent/:count', 'api/v1.Posts/recent','GET',['https'=>false]);
 
+    Route::post('api/v1/updateinfo', 'api/v1.Profile/updateProfile','POST',['https'=>false]);
+
+    Route::get('api/v1/myfavorites', 'api/v1.Posts/myFavorites','get',['https'=>false]);
+
+    Route::get('api/v1/postdetail/:threadid', 'api/v1.Posts/postDetail','get',['https'=>false]);
+
+

@@ -7,6 +7,7 @@
  */
 
 namespace app\api\model;
+use app\api\service\UserToken;
 use think\Db;
 use think\Model;
 
@@ -17,7 +18,12 @@ class Posts extends Model
         return $this->hasMany('Replies','threadId','id');
     }
 
-    public static function myPosts($uid){
+    public static function myPosts(){
+        $uid = UserToken::getCurrentUid();
+        $user = User::getProfileByID($uid);
+        if(!$user){
+            throw new UserException();
+        }
         return self::all(['userid'=>$uid]);
     }
 
