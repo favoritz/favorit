@@ -9,7 +9,6 @@
 namespace app\api\controller\v1;
 
 use app\api\model\Favorites;
-use app\api\model\PostList;
 use app\api\model\Posts as PostModel;
 
 class Posts
