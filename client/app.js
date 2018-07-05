@@ -1,6 +1,5 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index')
-var config = require('./config')
+
 
 App({
   data: {
@@ -19,6 +18,7 @@ App({
     'modifyparameter':null
   },
   onLaunch: function () {
-    this.data.profile = this.data.testprofile
+    //this.data.profile = this.data.testprofile
+    
   }
 })
