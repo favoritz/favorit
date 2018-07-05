@@ -5,56 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    'selectedlocation':null,
     'images':[],
-    'locations': [{
-      'index': 0,
-      'name': 'Laval',
-      'icon_selected': '/img/categoryBook.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 1,
-      'name': '南岸',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 2,
-      'name': '西岛',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 3,
-      'name': 'Saint-Laurent附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 4,
-      'name': '市区附近',
-      'icon_selected': '/img/location.png',
-      'icon_unselected': '/img/location2.png',
-      'selected': false
-    }, {
-      'index': 5,
-      'name': 'Verdun/Lasalle附近',
-      'icon_selected': '/img/location.png',
-      'icon_unselected': '/img/location2.png',
-      'selected': false
-    }, {
-      'index': 6,
-      'name': 'CDN/NDG附近',
-      'icon_selected': '/img/location.png',
-      'icon_unselected': '/img/location2.png',
-      'selected': false
-    }, {
-      'index': 7,
-      'name': '奥林匹克附近以及东',
-      'icon_selected': '/img/location.png',
-      'icon_unselected': '/img/location2.png',
-      'selected': false
-    }],
     'types': [{
       "name": '家具家居',
       'index': 0,
@@ -103,12 +55,8 @@ Page({
       { 'index': '7', 'value': '奥林匹克 附近及以东' }
     ]  
   },
-
-  formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
-  },
   type_click: function(e){
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 6; i++) {
       var param = {};
       var str = "types[" + i + "].selected"
       this.setData({ [str]: false })
@@ -118,22 +66,12 @@ Page({
     this.setData({ [str]: true })
   },
   location_click: function(e){
-    for (var i = 0; i < 8; i++) {
-      var param = {};
-      var str = "locations[" + i + "].selected"
-      this.setData({ [str]: false })
-    }
-    var param = {};
-    var str = "locations[" + e.target.id + "].selected"
-    this.setData({ [str]: true })
+    this.selectedlocation = e.detail
+    console.log(this.selectedlocation)
   },
-  // 地点选择,获取用户选择的单选框的值  
-  radioChange: function (e) {
-    this.setData({
-      value: e.detail.value
-    })
-    console.log(e.detail.value)
-  },  
+  submit:function(e){
+
+  },
 
   addimage_click: function(e){
     wx.chooseImage({

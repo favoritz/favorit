@@ -5,7 +5,7 @@ var config = require('./config')
 App({
   data: {
     'tempdata':'',
-    'url':'http://www.favorit.com/api/v1/',
+    'url':'http://www.bestbas.ca/api/v1/',
     'sessionid':null,
     'profile': null,
     'testprofile':{

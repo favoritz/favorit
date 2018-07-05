@@ -37,7 +37,7 @@
       点击这里查看区域划分~
     </view>
     
-    <radio-group bindchange="radioChange" style="display:flex; flex-direction:column; justify-contend:space-around;">
+    <radio-group bindchange="location_click" style="display:flex; flex-direction:column; justify-contend:space-around;">
       <view class="radioChoice" >
         <label>
           <radio value="0"></radio>

@@ -28,9 +28,9 @@ Page({
         if(res.code){
           wx.request({
             url: getApp().data.url+'login',
-            data: res.code,
-            header: {},
-            method: 'GET',
+            data: {},
+            header: {'code':res.code},
+            method: 'POST',
             dataType: 'json',
             responseType: 'text',
             success: function(res) {

@@ -78,8 +78,6 @@
       </view>
     </checkbox-group>
   </view>
-  
-
 
   <view class="menuTitle">
     <image class="titleImage" src='/img/filterSort.png'></image>
@@ -87,28 +85,13 @@
   </view>
 
   <view class="menuContent">
-    <radio-group bindchange="radioChange" style="display:flex; flex-direction:column; ">
+    <radio-group bindchange="sorting_click" style="display:flex; flex-direction:column; ">
       <view wx:for="{{sorting}}" style="margin:10rpx 0 10rpx 25rpx;" >
         <label  style="height:60rpx;line-height:60rpx;">
           <radio value="{{item.name}}" checked="{{item.checked}}"></radio>
           <view>{{item.value}}</view>  
         </label>
-      </view>  
-        <!--
-      <label class="radio" wx:for="{{sorting}}" style="height:60rpx;line-height:60rpx;">
-        <radio value="{{item.name}}" checked="{{item.checked}}" style="margin:10rpx 0 10rpx 25rpx;height:60rpx;line-height:60rpx;"/>{{item.value}}
-      </label>
-      -->
+      </view>
     </radio-group>
-  </view>  
- <!--
-  <view class='group_body' wx:for='{{sortings}}'>
-    <view class='type_item'>
-      <image wx:if='{{item.selected}}' class='type_item_image' src='{{item.icon_selected}}' bindtap='sorting_click' id='{{item.index}}'/>
-      <image wx:if='{{!item.selected}}' class='type_item_image' src='{{item.icon_unselected}}' bindtap='sorting_click' id='{{item.index}}'/>
-      <label>{{item.name}}</label>
-    </view >
   </view>
--->
-
 <button bindtap='search' style="background-color:#0aacbb; color:white; margin-left:30rpx; margin-right:30rpx; margin-bottom:30rpx; margin-top:30rpx;">开始搜索</button>

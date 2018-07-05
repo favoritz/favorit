@@ -5,79 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    'sortings':[{
-      'index': 0,
-      'name': '按发布时间排序',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': true
-    }, {
-      'index': 1,
-      'name': '按价格从低到高',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    },{
-      'index': 2,
-      'name': '按价格从高到低',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }],
+    'selectedlocations':[],
+    'selectedsorting':{value:"0"},
+    'selectedtype':-1,
+    
     'sorting': [
-      { name: 'TIME', value: '按发布时间从新到旧', checked: 'true' },
-      { name: 'PriceLtoH ', value: '按价格由低到高' },
-      { name: 'PriceLtoH ', value: '按价格由高到低' }
+      { name: '1', value: '按发布时间从新到旧', checked: 'true' },
+      { name: '2', value: '按价格由低到高' },
+      { name: '3', value: '按价格由高到低' }
     ],
-    'locations':[{
-      'index':0,
-      'name':'Laval',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 1,
-      'name': '南岸',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    },{
-      'index':2,
-      'name':'西岛',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 3,
-      'name': 'Saint-Laurent附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 4,
-      'name': '市区附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 5,
-      'name': 'Verdun/Lasalle附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 6,
-      'name': 'CDN/NDG附近',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }, {
-      'index': 7,
-      'name': '奥林匹克附近以及东',
-      'icon_selected': '/img/1.png',
-      'icon_unselected': '/img/2.png',
-      'selected': false
-    }],
     'types': [{
       "name": '家具家居',
       'index': 0,
@@ -173,7 +109,7 @@ Page({
   
   },
   type_click: function(e){
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 6; i++) {
       var param = {};
       var str = "types[" + i + "].selected"
       this.setData({ [str]: false })
@@ -181,28 +117,15 @@ Page({
     var param = {};
     var str = "types[" + e.target.id + "].selected"
     this.setData({ [str]: true })
+    this.selectedtype = e.target.id
   },
   location_click: function(e){
-    for (var i = 0; i < 8; i++) {
-      var param = {};
-      var str = "locations[" + i + "].selected"
-      this.setData({ [str]: false })
-    }
-    var param = {};
-    var str = "locations[" + e.target.id + "].selected"
-    this.setData({ [str]: true })
+    this.selectedlocations = e.detail
   },
   sorting_click: function(e){
-    for(var i = 0; i<3; i++){
-      var param = {};
-      var str = "sortings[" + i + "].selected"
-      this.setData({ [str]: false })
-    }
-    var param = {};
-    var str = "sortings[" + e.target.id + "].selected"
-    this.setData({ [str]: true })
+    this.selectedsorting = e.detail
   },
-  search_click: function(e){
+  search: function(e){
     console.log('do something')
   }
 })
