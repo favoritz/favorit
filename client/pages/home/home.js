@@ -166,13 +166,14 @@ Page({
       complete: function(res) {},
     })
     wx.request({
-      url: getApp().data.url+'recent/'+this.data.posts.length,
+      url: getApp().data.url+'recentcount/'+this.data.posts.length,
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
+        console.log(res)
         that.setData({'posts':res.data})
       },
       fail: function(res) {},
@@ -181,6 +182,7 @@ Page({
   },
   loadmore: function(e){
     var that = this
+    /*
     wx.request({
       url: getApp().data.url + 'recent/' + this.data.posts.length,
       data: '',
@@ -195,7 +197,7 @@ Page({
       complete: function (res) {
          
       }
-    })
+    })*/
   },
   showdetail:function(e){
     getApp().data.tempdata = e.currentTarget.id
