@@ -6,8 +6,8 @@
  * Time: 22:02
  */
 return [
-        'app_id' => 'wx10d0ffcd9cd94579',
-        'app_secret' => '04e0bcdb29b0d56a6bbfd288fbdd0514',
+        'app_id' => 'wxfe867cd4aa9363fb',
+        'app_secret' => '6ae0e138814706c321932f13a25238dc',
         // 微信使用code换取用户openid及session_key的url地址
          'login_url' => "https://api.weixin.qq.com/sns/jscode2session?" .
         "appid=%s&secret=%s&js_code=%s&grant_type=authorization_code",

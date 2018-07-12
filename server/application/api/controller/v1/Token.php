@@ -14,6 +14,7 @@ class Token
 {
     public function getToken()
     {
+        //(new TokenGet())->goCheck();
         $code = input('param.code');
         $ut = new UserToken($code);
         $data = $ut->get();

@@ -9,11 +9,10 @@
 namespace app\api\controller\v1;
 use app\api\model\Replies as RepliesModel;
 use app\api\model\User;
-use app\lib\exception\UserException;
 
 class Replies
 {
-    public function myReplies(){
+    public static function myReplies(){
         $uid = User::getUserIDFromCache();
         $replies = RepliesModel::getMyReplies($uid);
         return $replies;

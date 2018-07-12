@@ -9,8 +9,6 @@
 namespace app\api\validate;
 
 
-use app\api\validate\BaseValidate;
-
 class TokenGet extends BaseValidate
 {
     protected $rule = [
@@ -18,6 +16,6 @@ class TokenGet extends BaseValidate
     ];
 
     protected  $message = [
-        'code'=> 'code is empty'
+        'code'=> 'code为空'
     ];
 }
