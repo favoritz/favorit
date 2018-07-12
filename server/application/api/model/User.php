@@ -9,7 +9,6 @@
 namespace app\api\model;
 use app\api\service\UserToken;
 use app\lib\exception\UserException;
-use think\Db;
 use think\Model;
 
 class User extends  Model
@@ -37,19 +36,17 @@ class User extends  Model
     }
 
     public static function getProfileByID($id){
-        $todosql = Db::table('threads')                 //取todocount
-                ->where('status','=','0')
+        $todosql = Posts::where('status','=','0')                //取todocount
                 ->field('userid , count(id) as todocount')
                 ->group('userid')
                 ->buildSql();
 
-        $donesql = Db::table('threads')                //取donecount
-                ->where('status','=','1')
+        $donesql = Posts::where('status','=','1')           //取donecount
                 ->field('userid , count(id) as donecount')
                 ->group('userid')
                 ->buildSql();
 
-        $user = Db::table('users')->field('id,nickName username,weId as wxid,mobile as phone,email,todocount,donecount')
+        $user = self::field('id,nickName username,weId as wxid,mobile as phone,email,todocount,donecount')
                 ->alias('u')
                 ->where('u.id','=',$id)
                 ->join([$todosql=>'todo'],'todo.userid=u.id','left')

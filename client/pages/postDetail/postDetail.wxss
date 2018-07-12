@@ -22,6 +22,9 @@
 .bottom button::after{
   border-radius: 0;
 }
+.bottom button text{
+  font-size:40rpx;
+}
 
 .bottom image{
   display: flex;

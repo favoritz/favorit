@@ -10,18 +10,34 @@ namespace app\api\controller\v1;
 
 use app\api\model\Favorites;
 use app\api\model\Posts as PostModel;
+use app\api\model\Replies;
+use app\api\validate\CountPageMustBePositiveInt;
+use app\api\validate\ThreadIdMustBePositiveInt;
 
 class Posts
 {
+    public function replies(){
+        return $this->hasMany('Replies','threadId','id');
+    }
+
+    public function carousel(){
+        $carousel = PostModel::all(['category' => '888'],'carousel');
+        return $carousel;
+    }
+
+    public function announcements(){
+        $announcements = PostModel::where('category','=','666')->select();
+        return $announcements;
+    }
+
     public function myPosts(){
         $posts = PostModel::myPosts();
-
         return $posts;
     }
 
     public function recent(){
-        $count = input('param.count');
-        $recent = PostModel::recent($count);
+        (new CountPageMustBePositiveInt())->goCheck();
+        $recent = PostModel::recent();
         return $recent;
     }
 
@@ -31,11 +47,13 @@ class Posts
     }
 
     public function postDetail(){
-        $threadid = input('param.threadid');
-        $detail = PostModel::getDetail($threadid);
+        (new ThreadIdMustBePositiveInt())->goCheck();
+        $detail = PostModel::getDetail();
+        $detail['repilies'] = Replies::getReplies();
         return $detail;
     }
 
+    /*
     public function addPost(){
         $post = new PostModel([
             'title' => 'testAdd',
@@ -45,6 +63,10 @@ class Posts
         ]);
         $post->save();
 
+    }*/
+
+    public function filter(){
+        return PostModel::getPostList();
     }
 
 }

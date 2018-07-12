@@ -11,8 +11,6 @@ use app\api\model\User;
 use app\lib\exception\TokenException;
 use app\lib\exception\WeChatException;
 use think\Cache;
-use think\Db;
-use think\Exception;
 use think\Request;
 
 
@@ -99,9 +97,7 @@ class UserToken extends Token
         $key = Token::generateToken();   //token
         $value = json_encode($cachedValue);  //openid,uid,scope
         $expire = config('setting.token_expire_in');
-        $request = cache($key,$value,$expire);
-       // $request = Cache::set()
-
+        $request = cache($key,$value,['expire' => $expire]);
 
         if(!$request){
             throw new TokenException([

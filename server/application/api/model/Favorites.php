@@ -10,7 +10,6 @@ namespace app\api\model;
 use app\api\service\UserToken;
 use app\lib\exception\PostException;
 use app\lib\exception\UserException;
-use think\Db;
 use think\Model;
 
 class Favorites extends Model
@@ -22,8 +21,7 @@ class Favorites extends Model
         if(!$user){
             throw new UserException();
         }
-        $favorites = Db::table('favorite')
-            ->alias('f')
+        $favorites = self::alias('f')
             ->where('f.user_id','=',$uid)
             ->join('threads','threads.id=f.thread_id')
             ->select();

@@ -11,16 +11,15 @@ namespace app\api\controller\v1;
 
 use app\api\model\User;
 use app\api\service\UserToken;
-use think\Request;
+use app\api\validate\ProfileValidate;
 
 class Profile
 {
     public function updateProfile(){
+        (new ProfileValidate())->goCheck();
         $uid = UserToken::getCurrentUid();
-        $user =User::get($uid);
+        $user =User::get(['id' => $uid]);
 
-        //$mobile = Request::instance()->param('phone');//
-        //$email = Request::instance()->param('email');//
         $mobile = input('param.phone');
         $email = input('param.email');
         $wxid = input('param.wxid');
@@ -28,10 +27,19 @@ class Profile
         if(!$user){
             throw new UserException();
         }
-        $user->mobile     = $mobile;
-        $user->email    = $email;
-        $user->weId = $wxid;
+
+        if($mobile){
+            $user->mobile = $mobile;
+        }
+        if($email){
+            $user->email = $email;
+        }
+        if($wxid){
+            $user->weId = $wxid;
+        }
+
         $user->save();
+
         $user['phone'] = $user['mobile'];
         $user['wxid'] = $user['weId'];
         return $user;
