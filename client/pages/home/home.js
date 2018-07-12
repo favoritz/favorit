@@ -25,7 +25,7 @@ Page({
       'linkpage':'c'
     }],
     posts: [
-      {
+      /*{
         "id": 1,
         "author": "Joseph",
         "location": "市区附近",
@@ -117,15 +117,9 @@ Page({
         "reply_count": "0",
         "visit_count": "0",
         "tab": "ask"
-      }
+      }*/
     ],
-    announcements:[{
-      "name":"Favorit玩法介绍",
-      'linkpage':''
-    },{
-      "name":"Favorit改版详情",
-      'linkpage':''
-    }]
+    announcements:null
   },
 
   /**
@@ -159,14 +153,14 @@ Page({
       complete: function(res) {},
     })
     wx.request({
-      url: getApp().data.url+'announcements/',
+      url: getApp().data.url+'announcement/',
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        that.setData({'announcements':res.announcements})
+        that.setData({'announcements':res.data})
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -179,7 +173,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        that.setData({'posts':res.posts})
+        that.setData({'posts':res.data})
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -204,7 +198,7 @@ Page({
     })
   },
   showdetail:function(e){
-    getApp().data.tempdata = e.target.id
+    getApp().data.tempdata = e.currentTarget.id
     wx.navigateTo({
       url: '/pages/postDetail/postDetail',
       success: function(res) {},

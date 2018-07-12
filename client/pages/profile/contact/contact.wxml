@@ -2,7 +2,7 @@
 <view class="my" wx:if='{{display}}'>
   
   <view class="contact">
-    <text>微信号：{{profile.wechatid}}</text>
+    <text>微信号：{{profile.wxid}}</text>
     </view>
   <view class="contact">
     <text>手机号：{{profile.phone}}</text>
@@ -16,7 +16,8 @@
 <view class="my" wx:if='{{!display}}'>
   
   <view class="contact">
-    <text>微信号：{{profile.wechatid}}</text>
+    <text>微信号:</text>
+    <input bindinput='modifywxid'  placeholder='{{profile.phone}}'/>
     </view>
   <view class="contact">
     <text>手机号：</text>

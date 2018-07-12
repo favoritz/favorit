@@ -5,9 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    list:[{
+      imgsrc:'img',
+      id:'id',
+      title:'title',
+      create_at:'createtime',
+      location:'location',
+      price:'price'
+    }]
   },
 
+  todetail:function(e){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -26,7 +36,23 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(getApp().data.tempdata)
+    wx.request({
+      url: getApp().data.url+'filter',
+      data: getApp().data.tempdata,
+      header: {},
+      method: 'POST',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        this.setData({list:res.data})
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  collect:function(e){
+    console.log('collected')
   },
 
   /**

@@ -6,10 +6,7 @@ Page({
    */
   data: {
 
-    favorites: [
-      
-        
-    ],
+    favorites: [],
     hidden: false,
     inputShowed: false,
     inputVal: ""

@@ -98,10 +98,10 @@
   </view>
   
     <view class='.postTitle'>
-      <input style="width:100%;"placeholder='标题：可输入品牌型号等信息，方便用户搜索哦~'></input>
+      <input style="width:100%;"placeholder='标题：可输入品牌型号等信息，方便用户搜索哦~'  bindinput='titlechange'></input>
     </view>
     <view class='menuContent' style="min-height:300rpx; margin-bottom:5rpx;" >
-      <textarea placeholder='详情：可输入细节描述，越详细越容易被关注哟' ></textarea>
+      <textarea placeholder='详情：可输入细节描述，越详细越容易被关注哟' bindinput='descriptionchange' ></textarea>
     </view>
     <view class='postTitle' >
       <label style="margin-left:25rpx;">图片:</label>

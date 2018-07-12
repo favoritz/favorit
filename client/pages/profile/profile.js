@@ -14,34 +14,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ 'profile': getApp().data.profile })
-    if(getApp().data.sessionid){
-      this.setData({'state':1})
-    }
+    
   },
-  
   login: function(e){
     var that = this
     wx.login({
       success:function(res){
         if(res.code){
+          console.log(res.code)
           wx.request({
             url: getApp().data.url+'login',
-            data: {code:res.code},
-            header: {'content-type':'application/json;'},
+            data: {"code":res.code},
+            header: {},
             method: 'POST',
             success: function(res) {
               if (res.data.sessionid) {
                 getApp().data.sessionid = res.data.sessionid
                 getApp().data.profile = res.data.userinfo
+                that.setData({profile:getApp().data.profile})
                 that.setData({'state':1})
               }
             },
             fail: function(res) {
-              getApp().data.sessionid = 1
-              that.setData({'state':1})
+              getApp().data.sessionid = null
+              that.setData({'state':0})
             },
             complete: function(res) {
+              
               console.log(res)
             },
           })
@@ -70,7 +69,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    console.log(getApp().data.sessionid)
+    this.setData({ 'profile': getApp().data.profile })
+    if (getApp().data.sessionid) {
+      this.setData({ 'state': 1 })
+    }
   },
 
   /**
