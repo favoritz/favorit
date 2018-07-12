@@ -142,13 +142,16 @@ Page({
   onShow: function () {
     var that = this
     wx.request({
-      url: getApp().data.url + 'carousselitems',
+      url: getApp().data.url + 'carousel',
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
-      success: function(res) {},
+      success: function(res) {
+        console.log(res)
+        that.setData({carousselitems:res.data})
+      },
       fail: function(res) {},
       complete: function(res) {},
     })
@@ -182,22 +185,29 @@ Page({
   },
   loadmore: function(e){
     var that = this
-    /*
+    console.log(this.data.posts.length)
     wx.request({
-      url: getApp().data.url + 'recent/' + this.data.posts.length,
+
+      url: getApp().data.url + 'recentcount/' + this.data.posts.length,
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        that.data.posts.push(res.data.posts)
-        that.setData({ 'posts': that.data.posts }) },
+        console.log(res)
+        for(var i = 0;i<res.data.length;i++){
+          that.data.posts.push(res.data[i])
+        }
+        that.setData({ 'posts': that.data.posts }) 
+        console.log(that.data.posts)
+        },
+        
       fail: function (res) {  },
       complete: function (res) {
          
       }
-    })*/
+    })
   },
   showdetail:function(e){
     getApp().data.tempdata = e.currentTarget.id

@@ -47,6 +47,7 @@
       </view>
     </block>
   </view>
+  <button bindtap='loadmore'>loadmore</button>
 </scroll-view>
 
 
