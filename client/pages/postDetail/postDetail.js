@@ -5,8 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+<<<<<<< HEAD
     hiddenmodalput: true,
     title: 'iPhoneX',
+=======
+    title: 'title',
+>>>>>>> 4aef5c39a66adb3104745c6d8c36b789b6198eb6
     'carousselitems': [{
       'imgsrc': '/img/Costco.jpg',
     }, {
@@ -14,17 +18,17 @@ Page({
     }, {
       'imgsrc': '/img/banner.jpg'
     }],
-    create_at: '1997-10-20',
-    location: 'Concordia附近',
-    content: '出一台全新Iphonx，未拆，含Receipt，Guy Concordia地铁站面交或上门自取。',
-    userIcon: 's',
+    create_at: 'create time',
+    location: 'location',
+    content: 'content。',
+    userIcon: 'usericon',
     userID: 0,
-    username: '达芬奇微微一笑然后说',
+    username: 'username',
     'type': '#出二手#',
-    userPostCount: 0,
-    userDoneCount: 0,
-    readCount:125,
-    price:800,
+    userPostCount: 'upostcount',
+    userDoneCount: 'udonecount',
+    readCount:'readcount',
+    price:'price',
     top:true,
     good:true,
     'replies': [{
@@ -43,12 +47,6 @@ Page({
         'create_at': '2017-12-24',
         'content': '市中心好远啊能不能给我送过来，我在西岛，只有周一早上6点以前和周三晚上十点以后有空'
       }],
-    'profile':[{
-      'username': '三胖喵儿',
-      'userPostCount': 0,
-      'userDoneCount': 0
-    }
-    ]
   },
 
   collect: function(e){
@@ -119,14 +117,17 @@ Page({
     var that = this
     console.log('postdetail:' + getApp().data.tempdata)
     wx.request({
-      url: getApp().data.url + 'itemdetail/' + getApp().data.tempdata,
+      url: getApp().data.url + 'postdetail/' + getApp().data.tempdata,
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        that.setData({ 'detail': res.detail })
+        console.log(res)
+        that.setData({ 
+          title:res.data.title
+         })
       },
       fail: function (res) { },
       complete: function (res) { },

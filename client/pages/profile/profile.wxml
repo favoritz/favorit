@@ -44,21 +44,3 @@
  <button bindtap='logout' style='background-color:#0aacbb; color: white; margin-left:30rpx; margin-right:30rpx;'>退出登录</button>
 </view>
 
-<view wx:if='{{state==2}}'>
-  <button>微信号：{{profile.wxid}}</button>
-  <button bindtap='modifyphone'>手机号：{{profile.phone}}</button>
-  <button bindtap='modifyemail'>电子邮箱：{{profile.email}}</button>
-  <button bindtap='returntoone'>返回</button>
-</view>
-
-<view wx:if='{{state==3}}'>
-  <label>手机号: </label>
-  <input placeholder='{{profile.phone}}' bindinput='savetempdata'></input>
-  <button bindtap='confirmphone'>确认修改</button>
-</view>
-
-<view wx:if='{{state==4}}'>
-  <label>电子邮箱: </label>
-  <input placeholder='{{profile.email}}' bindinput='savetempdata'></input>
-  <button bindtap='confirmemail'>确认修改</button>
-</view>

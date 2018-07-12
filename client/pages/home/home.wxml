@@ -30,7 +30,7 @@
   <scroll-view class='announcement_scroll'>
     <view class='announcement' wx:for="{{announcements}}">
       <button style="background-color:white; height: 80rpx; font-size: 35rpx; color: #555555; align-items:center; justify-content:left;">
-        <text style="color:#0aacbb;">[公告] </text> {{item.name}} 
+        <text style="color:#0aacbb;">[公告] </text> {{item.title}} 
       </button>
     </view>
   </scroll-view>

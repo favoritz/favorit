@@ -25,7 +25,7 @@ Page({
       'linkpage':'c'
     }],
     posts: [
-      {
+      /*{
         "id": 1,
         "author": "Joseph",
         "location": "市区附近",
@@ -117,15 +117,9 @@ Page({
         "reply_count": "0",
         "visit_count": "0",
         "tab": "ask"
-      }
+      }*/
     ],
-    announcements:[{
-      "name":"Favorit玩法介绍",
-      'linkpage':''
-    },{
-      "name":"Favorit改版详情",
-      'linkpage':''
-    }]
+    announcements:null
   },
 
   /**
@@ -148,38 +142,42 @@ Page({
   onShow: function () {
     var that = this
     wx.request({
-      url: getApp().data.url + 'carousselitems',
-      data: '',
-      header: {},
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-    wx.request({
-      url: getApp().data.url+'announcements/',
+      url: getApp().data.url + 'carousel',
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        that.setData({'announcements':res.announcements})
+        console.log(res)
+        that.setData({carousselitems:res.data})
       },
       fail: function(res) {},
       complete: function(res) {},
     })
     wx.request({
-      url: getApp().data.url+'recent/'+this.data.posts.length,
+      url: getApp().data.url+'announcement/',
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        that.setData({'posts':res.posts})
+        that.setData({'announcements':res.data})
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+    wx.request({
+      url: getApp().data.url+'recentcount/'+this.data.posts.length,
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        console.log(res)
+        that.setData({'posts':res.data})
       },
       fail: function(res) {},
       complete: function(res) {},
@@ -187,16 +185,24 @@ Page({
   },
   loadmore: function(e){
     var that = this
+    console.log(this.data.posts.length)
     wx.request({
-      url: getApp().data.url + 'recent/' + this.data.posts.length,
+
+      url: getApp().data.url + 'recentcount/' + this.data.posts.length,
       data: '',
       header: {},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        that.data.posts.push(res.data.posts)
-        that.setData({ 'posts': that.data.posts }) },
+        console.log(res)
+        for(var i = 0;i<res.data.length;i++){
+          that.data.posts.push(res.data[i])
+        }
+        that.setData({ 'posts': that.data.posts }) 
+        console.log(that.data.posts)
+        },
+        
       fail: function (res) {  },
       complete: function (res) {
          
@@ -204,7 +210,7 @@ Page({
     })
   },
   showdetail:function(e){
-    getApp().data.tempdata = e.target.id
+    getApp().data.tempdata = e.currentTarget.id
     wx.navigateTo({
       url: '/pages/postDetail/postDetail',
       success: function(res) {},

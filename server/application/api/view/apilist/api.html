@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{volist name="api" id="vo"}
+api编号：{$vo.id}<br/>
+api名称：{$vo.name}<br/>
+http方法:{$vo.httpmethod}<br/>
+调用地址：{$vo.url}<br/>
+参数：{$vo.params}<br/>
+备注：{$vo.memo}<br/>
+---------------------------------------------<br/>
+
+
+{/volist}
+
+</body>
+</html>

@@ -101,11 +101,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.request({
+<<<<<<< HEAD
       url: getApp().data.url + 'myreplies/' ,
+=======
+      url: getApp().data.url + 'myreplies/'+this.replies.length,
+>>>>>>> 4aef5c39a66adb3104745c6d8c36b789b6198eb6
       data: '',
-      header: {'token':getApp().data.sessionid},
+      header: { 'token': getApp().data.sessionid },
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
@@ -123,22 +141,10 @@ Page({
           confirmColor: ''
         })
       },
-      complete: function (res) { },
+      complete: function (res) {
+        console.log('myposts'+res)
+       },
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

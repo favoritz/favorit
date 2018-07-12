@@ -126,6 +126,16 @@ Page({
     this.selectedsorting = e.detail
   },
   search: function(e){
-    console.log('do something')
+    getApp().data.tempdata = {
+      'selectedlocations': this.selectedlocations,
+      'selectedsorting': this.selectedsorting,
+      'selectedtype': this.selectedtype,
+    }
+    wx.redirectTo({
+      url: '/pages/postList/postList',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   }
 })

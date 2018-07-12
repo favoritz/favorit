@@ -6,7 +6,10 @@ Page({
    */
   data: {
     'selectedlocation':null,
+    'title':null,
+    'content':null,
     'images':[],
+    'selectedtype':null,
     'types': [{
       "name": '家具家居',
       'index': 0,
@@ -43,17 +46,7 @@ Page({
       'icon_selected': '/img/categoryOther.png',
       'icon_unselected': '/img/categoryOther.png',
       'selected': false
-    }],
-    'location': [
-      { 'index': '0', 'value': 'Laval' },  
-      { 'index': '1', 'value': '南岸' },
-      { 'index': '2', 'value': '西岛' },
-      { 'index': '3', 'value': 'Saint-Laurent 附近' },
-      { 'index': '4', 'value': '市区附近' },
-      { 'index': '5', 'value': 'Verdun/Lasalle 附近' },
-      { 'index': '6', 'value': 'CDN/NDG 附近' },
-      { 'index': '7', 'value': '奥林匹克 附近及以东' }
-    ]  
+    }]
   },
   type_click: function(e){
     for (var i = 0; i < 6; i++) {
@@ -63,14 +56,37 @@ Page({
     }
     var param = {};
     var str = "types[" + e.target.id + "].selected"
+    this.selectedtype = e.target.id
     this.setData({ [str]: true })
   },
   location_click: function(e){
     this.selectedlocation = e.detail
     console.log(this.selectedlocation)
   },
+  titlechange:function(e){
+    this.title = e.detail.value
+  },
+  descriptionchang:function(e){
+    this.content = e.detail.value
+  },
   submit:function(e){
-
+    wx.request({
+      url: getApp().data.url+postnew,
+      data: {
+        'type':this.selectedtype,
+        title:this.title,
+        content:this.content,
+        images:this.images,
+        location:this.selectedlocation
+      },
+      header: {'token':getApp().data.sessionid},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
   addimage_click: function(e){
@@ -103,7 +119,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if(getApp().data.sessionid==null){
+      wx.showModal({
+        title: '错误',
+        content: '请先登录',
+        showCancel: false,
+        confirmText: '确定',
+        confirmColor: '',
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {
+          wx.switchTab({
+            url: '/pages/profile/profile',
+            success: function(res) {},
+            fail: function(res) {},
+            complete: function(res) {},
+          })
+        },
+      })
+    }
   },
 
   /**

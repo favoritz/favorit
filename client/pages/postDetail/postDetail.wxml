@@ -21,7 +21,7 @@
   <view class="detail-post-meta">
     <view class="detail-post-info">
       <view class="detail-post-author-name">
-        <text>{{title }}</text>
+        <text>{{title}}</text>
         <view class="detail-type-item">
           <view class="detail-type-item-font">{{type}}</view>
         </view>
