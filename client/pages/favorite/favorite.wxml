@@ -28,7 +28,7 @@
                     -->
                     <view class="bar-info-item-number bluefont" style="color:#0aacbb;">${{item.price}}</view>
                   </view>
-                  <view class="bar-info-item" style="margin-left:23%;">
+                  <view catchtap="favorIt" class="bar-info-item" style="margin-left:23%;">
                
                     <image class="bar-info-item-icon" src="/img/收藏.png"></image>
                     <!--

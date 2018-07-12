@@ -140,9 +140,13 @@
       <image src="/img/myContact.png"></image>
       <view style="color:black"><text>联系</text></view>
     </button>
-    <button> 
+    <button bindtap="modalinput"> 
       <image src="/img/myReply.png"></image>
       <view style="color:black"><text>回复</text></view>
     </button> 
   </view>
+
+  <modal hidden="{{hiddenmodalput}}" title="回复" confirm-text="提交" confirm-color="#0aacbb" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm">
+      <input style="height:150rpx;" class="text" placeholder="请输入内容" auto-focus/>
+  </modal>
 </view>

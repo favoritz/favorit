@@ -16,14 +16,14 @@
   color: #555555;
   background-color: white;
   margin-top:10rpx;
-  margin-bottom:8rpx;
+  margin-bottom:5rpx;
 }
 
 .menuTitle image{
   margin-left:20rpx;
   margin-right: 20rpx;
-  height:80rpx;
-  width:80rpx;
+  height:50rpx;
+  width:50rpx;
 }
 
 .menuContent{
@@ -35,6 +35,10 @@
   justify-content: space-between;
 }
 
+.menuContent button::after{
+  border:none;
+}
+
 .location{
    background-color: white;
    color:#555555;
@@ -43,22 +47,24 @@
 }
 
 .titleImage{
-  width: 80rpx;
-  height: 80rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
 
 .circle{
-    width: 100rpx;
-    height: 100rpx;
-    border-radius: 500px;
+    width: 125rpx;
+    height: 125rpx;
+    border-radius: 50%;
     background-color: #cccccc;
-
+    display:flex;
+    align-items:center;
+    justify-content: center;
 }
 
 .circle2{
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 500px;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
     background-color: #cccccc;
     padding-top:9rpx;
     padding-left:9rpx;
@@ -82,7 +88,7 @@
 
 .type_item{
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   width:100%;
   justify-content: space-around;
   padding-top:15rpx;
@@ -96,7 +102,16 @@
   height: 30px;
   width: 30px;
 }
-
+.catSingleItem{
+  display:flex; 
+  flex-direction:column; 
+  justify-content:center;
+}
+.catSingleItem label{
+  font-size:32rpx; 
+  text-align:center;
+  justify-content:space-around;
+}
 .postTitle{
   font-size:36rpx;
   display:flex;
@@ -105,7 +120,7 @@
   line-height:100rpx;
   color: #555555;
   background-color: white;
-  margin-bottom:8rpx;
+  margin-bottom:5rpx;
 }
 
 radio-group label{

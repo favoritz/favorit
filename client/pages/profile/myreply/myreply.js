@@ -103,14 +103,14 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: getApp().data.url + 'myreplies' ,
+      url: getApp().data.url + 'myreplies/' ,
       data: '',
       header: {'token':getApp().data.sessionid},
       method: 'GET',
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
-        that.setData({ 'replies': res.replies })
+        that.setData({ 'replies': res.data })
       },
       fail: function (res) {
         wx.showModal({

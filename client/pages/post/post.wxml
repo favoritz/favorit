@@ -10,20 +10,77 @@
   </view>
   <view class="menuContent" >
     <view class='type_item'>
-      <view wx:for='{{types}}' class="items">
-        <view wx:if='{{item.selected}}' class='circleSelected'>
-          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}'class='circleSelected2'/>
+      <view style="display:flex; justify-content:space-around">
+        <view class="catSingleItem">
+          <view class='circle'>
+            <!--
+            <image src='/img/categoryFurniture.png' bindtap='type_click' id='' class='circle2'/>
+            -->
+          </view>
+          <view>
+            <label>家居家具</label>
+          </view>
+        </view>
+        <view class="catSingleItem">
+          <view class='circle'>
+            <image class="circle2" src="/img/categoryPC.png" bindtap="type_click"/>
+          </view>
+          <view>
+            <label>电脑数码</label>
+          </view>
+        </view>
+        <view class="catSingleItem">
+          <view class='circle'>
+            <image class="circle2" src="/img/categoryCloth.png" bindtap="type_click"/>
+          </view>
+          <view>
+            <label>服装饰品</label>
+          </view>
+        </view>
+        <view class="catSingleItem">
+          <view class='circle'>
+            <image class="circle2" src="/img/categoryCosm.png" bindtap="type_click"/>
+          </view>
+          <view>
+            <label>美妆护肤</label>
+          </view>
+        </view>
+      </view>
+
+      <view style="display:flex; width:50%; justify-content: space-around; margin-top:20rpx;">
+        <view class="catSingleItem">
+          <view class='circle'>
+            <image class="circle2" src="/img/categoryBook.png" bindtap="type_click"/>
+          </view>
+          <view>
+            <label>书籍课本</label>
+          </view>
+        </view>
+        <view class="catSingleItem">
+          <view class='circle'>
+            <image class="circle2" src="/img/categoryOther.png" bindtap="type_click"/>
+          </view>
+          <view>
+            <label>其它分类</label>
+          </view>
+        </view>
+      </view>  
+        <!--
+        <view wx:if='{{types.selected}}' class='circleSelected'>
+          <image src='{{types.icon_selected}}' bindtap='type_click' id='{{item.index}}'class='circleSelected2'/>
         </view>
 
-        <view wx:if='{{!item.selected}}' class='circle'>
-          <image src='{{item.icon_selected}}' bindtap='type_click' id='{{item.index}}' class='circle2'/>
+        <view wx:if='{{!types.selected}}' class='circle'>
+          <image src='{{types.icon_selected}}' bindtap='type_click' id='{{item.index}}' class='circle2'/>
         </view>
         
         <view>
           <label style="font-size:24rpx; text-align:center;">{{item.name}}</label>
-        </view>
-      </view>
-    </view >
+        </view> -->
+     
+      </view>    
+    
+  
   </view>
 
 
@@ -126,8 +183,8 @@
       默认联系方式
     </button>
   </view>
-  <view class="menuContent">
-    <button style="width:100%; height: 100rpx; background-color:white; color: #555555">
+  <view class="menuContent" style="margin-top:5rpx;height: 100rpx; line-height:100rpx; ">
+    <button style="width:100%; background-color:white; color: #555555">
       <input placeholder='手动输入：建议输入微信或手机号，提高信任度'></input>
     </button>
   </view>
