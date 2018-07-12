@@ -14,7 +14,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
     this.setData({ 'profile': getApp().data.profile })
     if(getApp().data.sessionid){
       this.setData({'state':1})
@@ -28,11 +27,9 @@ Page({
         if(res.code){
           wx.request({
             url: getApp().data.url+'login',
-            data: res.code,
-            header: {},
-            method: 'GET',
-            dataType: 'json',
-            responseType: 'text',
+            data: {code:res.code},
+            header: {'content-type':'application/json;'},
+            method: 'POST',
             success: function(res) {
               if (res.data.sessionid) {
                 getApp().data.sessionid = res.data.sessionid
@@ -44,7 +41,9 @@ Page({
               getApp().data.sessionid = 1
               that.setData({'state':1})
             },
-            complete: function(res) {},
+            complete: function(res) {
+              console.log(res)
+            },
           })
         }
         else{

@@ -54,6 +54,28 @@ Page({
     console.log(e)
   },
 
+  showModel: function () {
+    wx.showModal({
+      title: '联系方式',
+      content: '手机号：5147478201 \r\n Email：superduperextremelylongemail@gmail.com \r\n 微信号：489384htjBSDGA3098dfgh',
+      showCancel: false,
+      confirmText: '好的',
+      confirmColor: '#0aacbb',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定');
+        } else {
+          console.log('用户不知为何取消');
+        }
+      },
+      fail: function () {
+        console.log('接口调用失败');
+      },
+      complete: function () {
+        console.log('接口调用结束')
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

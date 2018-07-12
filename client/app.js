@@ -1,11 +1,10 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index')
-var config = require('./config')
+
 
 App({
   data: {
     'tempdata':'',
-    'url':'http://www.favorit.com/api/v1/',
+    'url':'http://www.bestbas.ca/api/v1/',
     'sessionid':null,
     'profile': null,
     'testprofile':{
@@ -19,6 +18,7 @@ App({
     'modifyparameter':null
   },
   onLaunch: function () {
-    this.data.profile = this.data.testprofile
+    //this.data.profile = this.data.testprofile
+    
   }
 })
